@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAVAR FACTORY DUTY</title>
+<title>SAVAR FACTORY WORK</title>
 <style>
 :root{--ink:#f8fafc;--neon:#00f58a}
 *{box-sizing:border-box}
@@ -54,10 +54,10 @@ nav button{background:transparent;color:#f8fafc;padding:7px 12px;font-size:12px}
 body.app-open>header{display:none}
 </style></head>
 <body>
-<header><h2>🏭 SAVAR FACTORY DUTY</h2><button id="adminBtn" title="Admin Panel" onclick="adminLogin()">R</button></header>
+<header><h2>🏭SF_SAVAR FACTORY</h2><button id="adminBtn" title="Admin Panel" onclick="adminLogin()">R</button></header>
 <main>
 <section id="authView" class="auth card">
-<h1>🏭 SAVAR FACTORY DUTY</h1>
+<h1>🏭SF_SAVAR FACTORY</h1>
 <div id="registerBox"><h3>সঠিক তথ্য দিয়ে রেজিস্ট্রেশন করুন</h3>
 <label>ফুল নাম</label><input id="regName" placeholder="আপনার নাম">
 <label>আইডি নাম্বার</label><input id="regId" placeholder="কর্মী আইডি">
@@ -76,7 +76,7 @@ body.app-open>header{display:none}
  <div class="brand-admin"><button onclick="adminLogin()">A</button><small>Admin ▾</small></div>
 </div>
 <div class="profile-strip">
- <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">🟢 Active</div></div></div>
+ <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ Active</div></div></div>
  <div class="date-panel"><span>▦</span><div id="todayDate">আজকের তারিখ</div></div>
 </div>
 <div class="grid">
@@ -90,7 +90,7 @@ body.app-open>header{display:none}
 <button class="tile t8" onclick="openPage('aboutPage')"><span>ℹ️</span> অ্যাপ সম্পর্কে</button>
 <button class="tile t9" onclick="openPage('supportPage')"><span>🎧</span> সাপোর্ট</button>
 </div></div>
-<section id="dutyPage" class="page card hidden"><h3>🕒 ডিউটি যোগ</h3><label>ডিউটির তারিখ</label><input id="dutyDate" type="date"><label>ডিউটি শিফট</label><select id="dutyShift"><option>মর্নিং</option><option>ইভনিং</option><option>নাইট</option></select><label>হাজিরার অবস্থা</label><select id="dutyStatus"><option>উপস্থিত</option><option>অনুপস্থিত</option><option>ছুটি</option></select><button class="full" onclick="saveDuty()">ডিউটি সেভ করুন</button></section>
+<section id="dutyPage" class="page card hidden"><h3>🕒 ডিউটি যোগ</h3><label>ডিউটির তারিখ</label><input id="dutyDate" type="date"><label>ডিউটি শিফট</label><select id="dutyShift"><option>মর্নিং ডিউটি</option><option>ইভনিং ডিউটি</option><option>নাইট ডিউটি</option></select><label>হাজিরার অবস্থা</label><select id="dutyStatus"><option>উপস্থিত</option><option>অনুপস্থিত</option><option>ছুটি</option></select><button class="full" onclick="saveDuty()">ডিউটি সেভ করুন</button></section>
 <section id="otPage" class="page card hidden"><h3>⏱️ ওভারটাইম যোগ</h3><label>তারিখ</label><input id="otDate" type="date"><div class="row"><div><label>শুরু</label><input id="otStart" type="time"></div><div><label>শেষ</label><input id="otEnd" type="time"></div></div><p id="otHours" class="muted">মোট ওভারটাইম: ০ ঘণ্টা</p><button class="full" onclick="saveOT()">ওভারটাইম সেভ করুন</button></section>
 <section id="profilePage" class="page card hidden"><h3>👤 প্রোফাইল</h3><label>কর্মীর নাম</label><input id="pName"><label>ছবি</label><input id="pPhoto" type="file" accept="image/*"><label>মোবাইল নম্বর (পরিবর্তন করা যাবে না)</label><input id="pPhone" disabled><label>কর্মী আইডি</label><input id="pId"><label>বিভাগ ও পদবি</label><select id="pRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select><button class="full" onclick="saveProfile()">সেভ করুন</button><button class="secondary full" style="margin-top:8px" onclick="logout()">লগআউট করুন</button></section>
 <section id="contactsPage" class="page card hidden"><h3>📞 প্রয়োজনীয় নাম্বার</h3><div class="contactline"><b>নাম</b><b>ফোন</b><b>কল</b></div><div id="contacts"></div></section>
@@ -125,7 +125,7 @@ function saveProfile(){current.name=$('pName').value.trim();current.id=$('pId').
 function renderHistory(){let mine=duties.filter(d=>d.phone===current.phone).sort((a,b)=>b.date.localeCompare(a.date)),present=mine.filter(d=>d.status==='উপস্থিত').length;$('totals').textContent=`মোট এন্ট্রি: ${mine.length} | উপস্থিতি: ${present} | মোট ডিউটি ঘণ্টা (প্রতি শিফট ৮ ঘণ্টা): ${present*8}`;$('history').innerHTML=mine.map(d=>`<tr><td>${d.date}</td><td>${d.shift}</td><td>${d.status}</td><td><button class="secondary" onclick="editDuty('${d.date}')">এডিট</button></td></tr>`).join('')||'<tr><td colspan="4">এখনো কোনো ডিউটি যোগ করা হয়নি</td></tr>';$('otList').innerHTML=ots.filter(o=>o.phone===current.phone).map(o=>`<p>${o.date} | ${o.start}-${o.end} | ${o.hours} ঘণ্টা</p>`).join('')||'ওভারটাইম নেই'}
 function editDuty(date){let d=duties.find(x=>x.phone===current.phone&&x.date===date);if(!d)return;$('dutyDate').value=d.date;$('dutyShift').value=d.shift;$('dutyStatus').value=d.status;openPage('dutyPage')}
 function renderCalendar(){let val=$('calMonth').value;if(!val)return;let [y,m]=val.split('-').map(Number),count=new Date(y,m,0).getDate(),first=new Date(y,m-1,1).getDay(),html=['রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র','শনি'].map(x=>`<div class="day"><b>${x}</b></div>`).join('');for(let i=0;i<first;i++)html+='<div class="day"></div>';for(let d=1;d<=count;d++){let date=`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,r=duties.find(x=>x.phone===current.phone&&x.date===date),cls=r?(r.status==='উপস্থিত'?'present':r.status==='অনুপস্থিত'?'absent':'leave'):'';html+=`<div class="day ${cls}" title="${r?r.status:'ডিউটি যোগ হয়নি'}">${d}${r?'<br>●':''}</div>`}$('calendar').innerHTML=html}
-function adminLogin(){let p=prompt('এডমিন প্যানেলে প্রবেশের পাসওয়ার্ড দিন');if(p===null)return;if(p!=='ADMIN@1234')return alert('ভুল পাসওয়ার্ড');let html=`মোট অ্যাকাউন্ট: ${users.length}\nমোট ডিউটি এন্ট্রি: ${duties.length}\n\n`;users.forEach((u,i)=>html+=`${i+1}. ${u.name} | ${u.id} | ${u.phone} | ডিউটি: ${duties.filter(d=>d.phone===u.phone).length}\n`);let choice=prompt(html+'\nকোনো কর্মীর নাম/আইডি/পদবি এডিট করতে তার মোবাইল নম্বর লিখুন:');if(!choice)return;let u=users.find(x=>x.phone===choice);if(!u)return alert('অ্যাকাউন্ট পাওয়া যায়নি');let name=prompt('নতুন নাম',u.name);if(name===null)return;let id=prompt('নতুন আইডি',u.id);if(id===null)return;let role=prompt('নতুন পদবি (নিরাপত্তা কর্মী/সুপারভাইজার/ম্যানেজার/অন্য)',u.role);if(role===null)return;u.name=name;u.id=id;u.role=role;put('sfd_users',users);alert('অ্যাকাউন্ট আপডেট হয়েছে')}
+function adminLogin(){let p=prompt('System Status: Active 🟢');if(p===null)return;if(p!=='ADMIN@1234')return alert('ভুল পাসওয়ার্ড');let html=`মোট অ্যাকাউন্ট: ${users.length}\nমোট ডিউটি এন্ট্রি: ${duties.length}\n\n`;users.forEach((u,i)=>html+=`${i+1}. ${u.name} | ${u.id} | ${u.phone} | ডিউটি: ${duties.filter(d=>d.phone===u.phone).length}\n`);let choice=prompt(html+'\nকোনো কর্মীর নাম/আইডি/পদবি এডিট করতে তার মোবাইল নম্বর লিখুন:');if(!choice)return;let u=users.find(x=>x.phone===choice);if(!u)return alert('অ্যাকাউন্ট পাওয়া যায়নি');let name=prompt('নতুন নাম',u.name);if(name===null)return;let id=prompt('নতুন আইডি',u.id);if(id===null)return;let role=prompt('নতুন পদবি (নিরাপত্তা কর্মী/সুপারভাইজার/ম্যানেজার/অন্য)',u.role);if(role===null)return;u.name=name;u.id=id;u.role=role;put('sfd_users',users);alert('অ্যাকাউন্ট আপডেট হয়েছে')}
 function sendSupport(){let msg='সমস্যা: '+$('issue').value+'\nবিস্তারিত: '+$('issueText').value+'\nনাম: '+current.name+'\nআইডি: '+current.id;location.href='https://wa.me/?text='+encodeURIComponent(msg)}
 $('dutyDate').value=new Date().toISOString().slice(0,10);$('otDate').value=new Date().toISOString().slice(0,10);
 </script></body></html>
