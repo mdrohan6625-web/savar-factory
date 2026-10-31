@@ -58,15 +58,15 @@ body.app-open>header{display:none}
 <main>
 <section id="authView" class="auth card">
 <h1>🏭 SAVAR FACTORY DUTY</h1>
-<div id="registerBox"><h3>নিচে সঠিক তথ্য দিয়ে রেজিস্ট্রেশন করুন</h3>
+<div id="registerBox"><h3>সঠিক তথ্য দিয়ে রেজিস্ট্রেশন করুন</h3>
 <label>ফুল নাম</label><input id="regName" placeholder="আপনার নাম">
 <label>আইডি নাম্বার</label><input id="regId" placeholder="কর্মী আইডি">
 <label>পাসওয়ার্ড</label><input id="regPass" type="password" placeholder="পাসওয়ার্ড">
-<label>পদবি নির্বাচন</label><select id="regRole"><option>নিরাপত্তা_কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select>
+<label>পদবি নির্বাচন</label><select id="regRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select>
 <label>মোবাইল নাম্বার</label><input id="regPhone" type="tel" placeholder="01XXXXXXXXX">
 <button class="full" onclick="register()">রেজিস্ট্রেশন করুন</button>
 <p class="muted">আগে অ্যাকাউন্ট খুলেছেন <a href="#" onclick="showLogin()">লগইন করুন</a></p></div>
-<div id="loginBox" class="hidden"><h3>অ্যাকাউন্ট থাকলে প্রবেশ করুন</h3><label>মোবাইল নাম্বার</label><input id="loginPhone" type="tel"><label>পাসওয়ার্ড দিন</label><input id="loginPass" type="password"><button class="full" onclick="login()">প্রবেশ করুন</button><p class="muted">অ্যাকাউন্ট নেই? <a href="#" onclick="showRegister()">রেজিস্ট্রেশন করতে হবে</a></p></div>
+<div id="loginBox" class="hidden"><h3>প্রবেশ করুন</h3><label>মোবাইল নাম্বার</label><input id="loginPhone" type="tel"><label>পাসওয়ার্ড দিন</label><input id="loginPass" type="password"><button class="full" onclick="login()">প্রবেশ করুন</button><p class="muted">অ্যাকাউন্ট নেই? <a href="#" onclick="showRegister()">রেজিস্ট্রেশন করতে হবে</a></p></div>
 </section>
 <section id="appView" class="hidden">
 <div id="homePage">
@@ -92,12 +92,12 @@ body.app-open>header{display:none}
 </div></div>
 <section id="dutyPage" class="page card hidden"><h3>🕒 ডিউটি যোগ</h3><label>ডিউটির তারিখ</label><input id="dutyDate" type="date"><label>ডিউটি শিফট</label><select id="dutyShift"><option>মর্নিং</option><option>ইভনিং</option><option>নাইট</option></select><label>হাজিরার অবস্থা</label><select id="dutyStatus"><option>উপস্থিত</option><option>অনুপস্থিত</option><option>ছুটি</option></select><button class="full" onclick="saveDuty()">ডিউটি সেভ করুন</button></section>
 <section id="otPage" class="page card hidden"><h3>⏱️ ওভারটাইম যোগ</h3><label>তারিখ</label><input id="otDate" type="date"><div class="row"><div><label>শুরু</label><input id="otStart" type="time"></div><div><label>শেষ</label><input id="otEnd" type="time"></div></div><p id="otHours" class="muted">মোট ওভারটাইম: ০ ঘণ্টা</p><button class="full" onclick="saveOT()">ওভারটাইম সেভ করুন</button></section>
-<section id="profilePage" class="page card hidden"><h3>👤 প্রোফাইল</h3><label>কর্মীর নাম</label><input id="pName"><label>ছবি</label><input id="pPhoto" type="file" accept="image/*"><label>মোবাইল নম্বর (পরিবর্তন করা যাবে না)</label><input id="pPhone" disabled><label>কর্মী আইডি</label><input id="pId"><label>বিভাগ ও পদবি</label><select id="pRole"><option>গার্ড</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select><button class="full" onclick="saveProfile()">সেভ করুন</button><button class="secondary full" style="margin-top:8px" onclick="logout()">লগআউট</button></section>
+<section id="profilePage" class="page card hidden"><h3>👤 প্রোফাইল</h3><label>কর্মীর নাম</label><input id="pName"><label>ছবি</label><input id="pPhoto" type="file" accept="image/*"><label>মোবাইল নম্বর (পরিবর্তন করা যাবে না)</label><input id="pPhone" disabled><label>কর্মী আইডি</label><input id="pId"><label>বিভাগ ও পদবি</label><select id="pRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select><button class="full" onclick="saveProfile()">সেভ করুন</button><button class="secondary full" style="margin-top:8px" onclick="logout()">লগআউট করুন</button></section>
 <section id="contactsPage" class="page card hidden"><h3>📞 প্রয়োজনীয় নাম্বার</h3><div class="contactline"><b>নাম</b><b>ফোন</b><b>কল</b></div><div id="contacts"></div></section>
 <section id="calendarPage" class="page card hidden"><h3>🗓️ হাজিরা ক্যালেন্ডার</h3><div class="row"><input id="calMonth" type="month"><button onclick="renderCalendar()">দেখুন</button></div><div class="calendar" id="calendar"></div><p class="muted">🟩 উপস্থিত　🟥 অনুপস্থিত　🟨 ছুটি</p></section>
 <section id="historyPage" class="page card hidden"><h3>📋 ডিউটি দেখুন / এডিট</h3><p id="totals"></p><div class="tablewrap"><table><thead><tr><th>তারিখ</th><th>শিফট</th><th>অবস্থা</th><th>এডিট</th></tr></thead><tbody id="history"></tbody></table></div><h3 style="margin-top:20px">ওভারটাইম তালিকা</h3><div id="otList"></div></section>
 <section id="updatesPage" class="page card hidden"><h3>🔄 আপডেট রানিং</h3><div class="notice">🔄 আপডেট রানিং — নতুন আপডেট প্রস্তুত হলে এখানে জানানো হবে।</div><p>• অ্যাপের নতুন আপডেট</p><p>• নতুন ফিচারের খবর</p><p>• গুরুত্বপূর্ণ নোটিশ</p><p>• রক্ষণাবেক্ষণ সংক্রান্ত বার্তা</p></section>
-<section id="aboutPage" class="page card hidden"><h3>ℹ️ অ্যাপ সম্পর্কে</h3><h2>SAVAR FACTORY DUTY</h2><p>কারখানার কর্মীদের ডিউটি, হাজিরা ও ওভারটাইমের হিসাব সহজে সংরক্ষণের জন্য এই অ্যাপ তৈরি।</p><p>সুবিধা: ডিউটি যোগ, হাজিরা ক্যালেন্ডার, ওভারটাইম হিসাব, প্রোফাইল ও জরুরি যোগাযোগ।</p><p>ভার্সন: 1.0.0</p><p>ডেভেলপার:ISRAFIL KHAN ROHAN 📞01758706625</p></section>
+<section id="aboutPage" class="page card hidden"><h3>ℹ️ অ্যাপ সম্পর্কে</h3><h2>SAVAR FACTORY DUTY</h2><p>কারখানার কর্মীদের ডিউটি, হাজিরা ও ওভারটাইমের হিসাব সহজে সংরক্ষণের জন্য এই অ্যাপ তৈরি।</p><p>সুবিধা: ডিউটি যোগ, হাজিরা ক্যালেন্ডার, ওভারটাইম হিসাব, প্রোফাইল ও জরুরি যোগাযোগ।</p><p>ভার্সন: 1.0.0</p><p>ডেভেলপার: ISRAFIL KHAN ROHAN 📞01758706625</p></section>
 <section id="supportPage" class="page card hidden"><h3>🎧 সাপোর্ট</h3><label>সমস্যার ধরন নির্বাচন করুন</label><select id="issue"><option>লগইন সমস্যা</option><option>রেজিস্ট্রেশন সমস্যা</option><option>ডিউটি যোগ করতে সমস্যা</option><option>হাজিরার তথ্য সংশোধন</option><option>ওভারটাইম সমস্যা</option><option>অন্যান্য</option></select><label>বিস্তারিত লিখুন</label><textarea id="issueText" rows="3" placeholder="আপনার সমস্যাটি লিখুন"></textarea><button class="full" onclick="sendSupport()">সাপোর্ট মেসেজ তৈরি করুন</button><a class="btn full" style="display:block;text-align:center;text-decoration:none;margin-top:10px" target="_blank" href="https://chat.whatsapp.com/CwOxniGGIcVGXtDmG5PV3G?s=cl&p=a&mlu=4&ilr=4&iam=2">WhatsApp সাপোর্ট গ্রুপে মেসেজ দিন</a></section>
 </section>
 </main>
