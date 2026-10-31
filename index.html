@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SAVAR FACTORY WORK</title>
+<link rel="manifest" href="/savar-factory/manifest.json">
+<meta name="theme-color" content="#922424">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
 :root{--ink:#f8fafc;--neon:#00f58a}
 *{box-sizing:border-box}
@@ -52,7 +58,8 @@ nav button{background:transparent;color:#f8fafc;padding:7px 12px;font-size:12px}
 @media(max-width:520px){main{padding:7px 7px 85px}.brand-title{font-size:23px}.factory-mark{font-size:45px}.profile-strip{grid-template-columns:minmax(0,1fr) 112px;gap:7px}.user-panel,.date-panel{min-height:104px;padding:7px}.avatar{width:65px;height:65px}.user-meta{font-size:13px}.user-meta small{font-size:12px}.date-panel{font-size:14px}.tile{font-size:13px;min-height:104px;border-radius:17px}.tile span{font-size:31px}.grid{gap:8px}}
 @media(max-width:360px){.brand-title{font-size:20px}.profile-strip{grid-template-columns:minmax(0,1fr) 100px}.avatar{width:55px;height:55px}.tile{font-size:11px;min-height:95px}}
 body.app-open>header{display:none}
-</style></head>
+</style>
+</head>
 <body>
 <header><h2>🏭SF_SAVAR FACTORY</h2><button id="adminBtn" title="Admin Panel" onclick="adminLogin()">R</button></header>
 <main>
@@ -70,15 +77,8 @@ body.app-open>header{display:none}
 </section>
 <section id="appView" class="hidden">
 <div id="homePage">
-<div class="brand-head">
- <div class="factory-mark">🏭</div>
- <div><div class="brand-title">SAVAR<br>FACTORY WORK</div><div class="brand-sub">Attendance Made Easy</div></div>
- <div class="brand-admin"><button onclick="adminLogin()">A</button><small>Admin ▾</small></div>
-</div>
-<div class="profile-strip">
- <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ Active</div></div></div>
- <div class="date-panel"><span>▦</span><div id="todayDate">আজকের তারিখ</div></div>
-</div>
+<div class="brand-head"><div class="factory-mark">🏭</div><div><div class="brand-title">SAVAR<br>FACTORY WORK</div><div class="brand-sub">Attendance Made Easy</div></div><div class="brand-admin"><button onclick="adminLogin()">A</button><small>Admin ▾</small></div></div>
+<div class="profile-strip"><div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ Active</div></div></div><div class="date-panel"><span>▦</span><div id="todayDate">আজকের তারিখ</div></div></div>
 <div class="grid">
 <button class="tile t1" onclick="openPage('dutyPage')"><span>🕒</span> ডিউটি যোগ</button>
 <button class="tile t2" onclick="openPage('otPage')"><span>⏱️</span> ওভারটাইম যোগ</button>
@@ -123,9 +123,4 @@ function fillProfile(){$('pName').value=current.name;$('pPhone').value=current.p
 $('pPhoto').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>photoData=r.result;r.readAsDataURL(f)});
 function saveProfile(){current.name=$('pName').value.trim();current.id=$('pId').value.trim();current.role=$('pRole').value;current.photo=photoData;users=users.map(u=>u.phone===current.phone?current:u);put('sfd_users',users);$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id;$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';alert('প্রোফাইল আপডেট হয়েছে')}
 function renderHistory(){let mine=duties.filter(d=>d.phone===current.phone).sort((a,b)=>b.date.localeCompare(a.date)),present=mine.filter(d=>d.status==='উপস্থিত').length;$('totals').textContent=`মোট এন্ট্রি: ${mine.length} | উপস্থিতি: ${present} | মোট ডিউটি ঘণ্টা (প্রতি শিফট ৮ ঘণ্টা): ${present*8}`;$('history').innerHTML=mine.map(d=>`<tr><td>${d.date}</td><td>${d.shift}</td><td>${d.status}</td><td><button class="secondary" onclick="editDuty('${d.date}')">এডিট</button></td></tr>`).join('')||'<tr><td colspan="4">এখনো কোনো ডিউটি যোগ করা হয়নি</td></tr>';$('otList').innerHTML=ots.filter(o=>o.phone===current.phone).map(o=>`<p>${o.date} | ${o.start}-${o.end} | ${o.hours} ঘণ্টা</p>`).join('')||'ওভারটাইম নেই'}
-function editDuty(date){let d=duties.find(x=>x.phone===current.phone&&x.date===date);if(!d)return;$('dutyDate').value=d.date;$('dutyShift').value=d.shift;$('dutyStatus').value=d.status;openPage('dutyPage')}
-function renderCalendar(){let val=$('calMonth').value;if(!val)return;let [y,m]=val.split('-').map(Number),count=new Date(y,m,0).getDate(),first=new Date(y,m-1,1).getDay(),html=['রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র','শনি'].map(x=>`<div class="day"><b>${x}</b></div>`).join('');for(let i=0;i<first;i++)html+='<div class="day"></div>';for(let d=1;d<=count;d++){let date=`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,r=duties.find(x=>x.phone===current.phone&&x.date===date),cls=r?(r.status==='উপস্থিত'?'present':r.status==='অনুপস্থিত'?'absent':'leave'):'';html+=`<div class="day ${cls}" title="${r?r.status:'ডিউটি যোগ হয়নি'}">${d}${r?'<br>●':''}</div>`}$('calendar').innerHTML=html}
-function adminLogin(){let p=prompt('System Status: Active 🟢');if(p===null)return;if(p!=='ADMIN@1234')return alert('ভুল পাসওয়ার্ড');let html=`মোট অ্যাকাউন্ট: ${users.length}\nমোট ডিউটি এন্ট্রি: ${duties.length}\n\n`;users.forEach((u,i)=>html+=`${i+1}. ${u.name} | ${u.id} | ${u.phone} | ডিউটি: ${duties.filter(d=>d.phone===u.phone).length}\n`);let choice=prompt(html+'\nকোনো কর্মীর নাম/আইডি/পদবি এডিট করতে তার মোবাইল নম্বর লিখুন:');if(!choice)return;let u=users.find(x=>x.phone===choice);if(!u)return alert('অ্যাকাউন্ট পাওয়া যায়নি');let name=prompt('নতুন নাম',u.name);if(name===null)return;let id=prompt('নতুন আইডি',u.id);if(id===null)return;let role=prompt('নতুন পদবি (নিরাপত্তা কর্মী/সুপারভাইজার/ম্যানেজার/অন্য)',u.role);if(role===null)return;u.name=name;u.id=id;u.role=role;put('sfd_users',users);alert('অ্যাকাউন্ট আপডেট হয়েছে')}
-function sendSupport(){let msg='সমস্যা: '+$('issue').value+'\nবিস্তারিত: '+$('issueText').value+'\nনাম: '+current.name+'\nআইডি: '+current.id;location.href='https://wa.me/?text='+encodeURIComponent(msg)}
-$('dutyDate').value=new Date().toISOString().slice(0,10);$('otDate').value=new Date().toISOString().slice(0,10);
-</script></body></html>
+function editDuty(date){let d=duties.find(x=>x.
