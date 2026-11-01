@@ -1,130 +1,490 @@
-<!DOCTYPE html>  <html lang="bn">  
-<head>  
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">  
-<title>SAVAR FACTORY WORK</title>  
-<style>  
-:root{--ink:#f8fafc;--neon:#00f58a}  
-*{box-sizing:border-box}  
-body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#020b0a;color:#f8fafc}  
-header{background:linear-gradient(120deg,#031b13,#002d20);color:#fff;padding:11px 15px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;border-bottom:1px solid #00df83}  
-header h2{font-size:16px;margin:0;letter-spacing:.4px}  
-#adminBtn{border:2px solid #facc15;background:#071c15;color:#facc15;border-radius:50%;width:40px;height:40px;font-size:20px;font-weight:900}  
-main{max-width:560px;margin:auto;padding:10px 10px 88px}  
-.card{background:#fff;color:#172033;border-radius:17px;padding:16px;margin:12px 0;box-shadow:0 5px 18px #0006;border:1px solid #dbeafe}  
-h3{margin:0 0 13px;color:#253b76}.muted{color:#64748b;font-size:13px}  
-input,select,textarea,button{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:10px;background:#fbfdff;margin:5px 0 10px}label{font-size:13px;font-weight:bold;color:#334155}  
-button,.btn{border:0;border-radius:10px;padding:11px 15px;background:linear-gradient(100deg,#2563eb,#7541c8);color:white;font-weight:bold;cursor:pointer}button.secondary{background:#e8efff;color:#24438c}button.danger{background:#dc3545}.full{width:100%}  
-#homePage{background:radial-gradient(ellipse at top,#063b25 0%,#00110d 48%,#000 100%);padding:12px 9px 18px;border-radius:22px;min-height:calc(100vh - 110px);overflow:hidden}  
-.brand-head{display:flex;align-items:center;gap:12px;padding:8px 7px 17px;position:relative}  
-.factory-mark{font-size:54px;line-height:1;color:#ffe000;filter:drop-shadow(0 0 8px #c8ff00)}  
-.brand-title{font-size:27px;line-height:1.12;font-weight:900;color:#fff;text-shadow:0 2px 8px #000}  
-.brand-sub{color:#ffe000;font-weight:800;font-size:15px;margin-top:7px}  
-.brand-admin{margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:3px}  
-.brand-admin button{border:2px solid #facc15;color:#ffdf00;background:#06130e;border-radius:50%;width:55px;height:55px;font-size:28px;padding:0;box-shadow:0 0 12px #e6d00055}  
-.brand-admin small{border:1px solid #8b7a13;border-radius:18px;padding:3px 8px;color:#fff;font-size:11px}  
-.profile-strip{display:grid;grid-template-columns:1fr 130px;gap:9px;margin:4px 0 17px}  
-.user-panel,.date-panel{background:linear-gradient(110deg,#03182b,#061e35);border:2px solid #087bd7;border-radius:20px;min-height:118px;display:flex;align-items:center;padding:10px;box-shadow:0 0 14px #007bff33}  
-.user-panel{gap:10px;min-width:0}.avatar{width:82px;height:82px;border-radius:50%;border:4px solid #dfff00;background:linear-gradient(135deg,#214d69,#0a1725);display:flex;align-items:center;justify-content:center;font-size:35px;flex-shrink:0;overflow:hidden}  
-.avatar img{width:100%;height:100%;object-fit:cover}  
-.user-meta{font-size:16px;font-weight:800;min-width:0;overflow-wrap:anywhere}.user-meta small{display:block;font-size:14px;font-weight:600;margin-top:5px}  
-.active-dot{color:#22f65d;font-size:14px;margin-top:7px}.date-panel{border-color:#00e6ba;background:linear-gradient(140deg,#003c36,#005b48);justify-content:center;gap:8px;color:#fff;font-weight:800;font-size:16px;text-align:center}  
-.date-panel span{font-size:28px}  
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}  
-.tile{min-height:116px;border:2px solid transparent;border-radius:20px;color:white;font-weight:900;font-size:16px;box-shadow:0 5px 14px #0008,inset 0 0 10px #ffffff20;padding:10px 5px;text-shadow:0 1px 3px #0008;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;line-height:1.25}  
-.tile span{display:block;font-size:35px;margin:0;line-height:1}  
-.t1{background:linear-gradient(145deg,#00d900,#008c12);border-color:#54ff19;box-shadow:0 0 13px #39ff00aa,inset 0 0 13px #fff3}  
-.t2{background:linear-gradient(145deg,#087bff,#0038b7);border-color:#00aaff;box-shadow:0 0 13px #008dffaa,inset 0 0 13px #fff3}  
-.t3{background:linear-gradient(145deg,#ff9e00,#e65b00);border-color:#ffbd32;box-shadow:0 0 13px #ff8a00aa,inset 0 0 13px #fff3}  
-.t4{background:linear-gradient(145deg,#9200ff,#5100bd);border-color:#d000ff;box-shadow:0 0 13px #a000ffaa,inset 0 0 13px #fff3}  
-.t5{background:linear-gradient(145deg,#00a92b,#006c20);border-color:#00f52c;box-shadow:0 0 13px #00ed35aa,inset 0 0 13px #fff3}  
-.t6{background:linear-gradient(145deg,#075dff,#0029a5);border-color:#1688ff;box-shadow:0 0 13px #006effaa,inset 0 0 13px #fff3}  
-.t7{background:linear-gradient(145deg,#ff1d27,#bd0012);border-color:#ff4b4b;box-shadow:0 0 13px #ff002baa,inset 0 0 13px #fff3}  
-.t8{background:linear-gradient(145deg,#00c82b,#008318);border-color:#35ff28;box-shadow:0 0 13px #00ed35aa,inset 0 0 13px #fff3}  
-.t9{background:linear-gradient(145deg,#9b00ed,#5100a8);border-color:#db36ff;box-shadow:0 0 13px #a000ffaa,inset 0 0 13px #fff3}  
-.hidden{display:none!important}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px;min-width:320px}th,td{padding:9px;border-bottom:1px solid #e5e7eb;text-align:left}th{background:#eef2ff;color:#263b78}.pill{padding:4px 8px;border-radius:20px;font-size:12px;font-weight:bold}.present{background:#d1fae5;color:#047857}.absent{background:#fee2e2;color:#b91c1c}.leave{background:#fef3c7;color:#92400e}  
-.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{background:#f1f5f9;border-radius:8px;text-align:center;padding:9px 2px;font-size:12px;min-height:45px}.day.present{background:#bbf7d0}.day.absent{background:#fecaca}.day.leave{background:#fde68a}  
-nav{position:fixed;bottom:0;left:0;right:0;background:#020c0a;border:1px solid #00d878;box-shadow:0 -3px 18px #00e88733;display:flex;justify-content:space-around;padding:8px 3px calc(8px + env(safe-area-inset-bottom));z-index:8;border-radius:18px 18px 0 0}  
-nav button{background:transparent;color:#f8fafc;padding:7px 12px;font-size:12px}nav button b{display:block;font-size:23px;color:#00f58a}  
-.auth{max-width:440px;margin:7vh auto}.auth h1{text-align:center;color:#24438c;font-size:23px}  
-.contactline{display:grid;grid-template-columns:1fr 1fr auto;gap:7px;align-items:center;padding:8px 0;border-bottom:1px solid #edf0f5;font-size:13px}.contactline a{background:#0d9b68;color:white;text-decoration:none;padding:8px 11px;border-radius:8px}  
-.notice{background:#fff7ed;border-left:4px solid #f59e0b;padding:12px;border-radius:9px;font-size:13px}  
-@media(max-width:520px){main{padding:7px 7px 85px}.brand-title{font-size:23px}.factory-mark{font-size:45px}.profile-strip{grid-template-columns:minmax(0,1fr) 112px;gap:7px}.user-panel,.date-panel{min-height:104px;padding:7px}.avatar{width:65px;height:65px}.user-meta{font-size:13px}.user-meta small{font-size:12px}.date-panel{font-size:14px}.tile{font-size:13px;min-height:104px;border-radius:17px}.tile span{font-size:31px}.grid{gap:8px}}  
-@media(max-width:360px){.brand-title{font-size:20px}.profile-strip{grid-template-columns:minmax(0,1fr) 100px}.avatar{width:55px;height:55px}.tile{font-size:11px;min-height:95px}}  
-body.app-open>header{display:none}  
-</style></head>  
-<body>  
-<header><h2>🏭SF_SAVAR FACTORY</h2><button id="adminBtn" title="Admin Panel" onclick="adminLogin()">R</button></header>  
-<main>  
-<section id="authView" class="auth card">  
-<h1>🏭SF_SAVAR FACTORY</h1>  
-<div id="registerBox"><h3>সঠিক তথ্য দিয়ে রেজিস্ট্রেশন করুন</h3>  
-<label>ফুল_নাম</label><input id="regName" placeholder="আপনার নাম">  
-<label>আইডি নাম্বার</label><input id="regId" placeholder="কর্মী আইডি">  
-<label>পাসওয়ার্ড</label><input id="regPass" type="password" placeholder="পাসওয়ার্ড">  
-<label>পদবি নির্বাচন</label><select id="regRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select>  
-<label>মোবাইল নাম্বার</label><input id="regPhone" type="tel" placeholder="01XXXXXXXXX">  
-<button class="full" onclick="register()">রেজিস্ট্রেশন করুন</button>  
-<p class="muted">আগে অ্যাকাউন্ট খুলেছেন <a href="#" onclick="showLogin()">লগইন করুন</a></p></div>  
-<div id="loginBox" class="hidden"><h3>প্রবেশ করুন</h3><label>মোবাইল নাম্বার</label><input id="loginPhone" type="tel"><label>পাসওয়ার্ড দিন</label><input id="loginPass" type="password"><button class="full" onclick="login()">প্রবেশ করুন</button><p class="muted">অ্যাকাউন্ট নেই? <a href="#" onclick="showRegister()">রেজিস্ট্রেশন করতে হবে</a></p></div>  
-</section>  
-<section id="appView" class="hidden">  
-<div id="homePage">  
-<div class="brand-head">  
- <div class="factory-mark">🏭</div>  
- <div><div class="brand-title">SAVAR<br>FACTORY WORK</div><div class="brand-sub">Attendance Made Easy</div></div>  
- <div class="brand-admin"><button onclick="adminLogin()">A</button><small>Admin ▾</small></div>  
-</div>  
-<div class="profile-strip">  
- <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ Active</div></div></div>  
- <div class="date-panel"><span>▦</span><div id="todayDate">আজকের তারিখ</div></div>  
-</div>  
-<div class="grid">  
-<button class="tile t1" onclick="openPage('dutyPage')"><span>🕒</span> ডিউটি যোগ</button>  
-<button class="tile t2" onclick="openPage('otPage')"><span>⏱️</span> ওভারটাইম যোগ</button>  
-<button class="tile t3" onclick="openPage('profilePage')"><span>👤</span> প্রোফাইল</button>  
-<button class="tile t4" onclick="openPage('contactsPage')"><span>📞</span> প্রয়োজনীয় নাম্বার</button>  
-<button class="tile t5" onclick="openPage('calendarPage')"><span>🗓️</span> ক্যালেন্ডার</button>  
-<button class="tile t6" onclick="openPage('historyPage')"><span>📋</span> ডিউটি দেখুন</button>  
-<button class="tile t7" onclick="openPage('updatesPage')"><span>🔄</span> আপডেট রানিং</button>  
-<button class="tile t8" onclick="openPage('aboutPage')"><span>ℹ️</span> অ্যাপ সম্পর্কে</button>  
-<button class="tile t9" onclick="openPage('supportPage')"><span>🎧</span> সাপোর্ট</button>  
-</div></div>  
-<section id="dutyPage" class="page card hidden"><h3>🕒 ডিউটি যোগ</h3><label>ডিউটির তারিখ</label><input id="dutyDate" type="date"><label>ডিউটি শিফট</label><select id="dutyShift"><option>মর্নিং ডিউটি</option><option>ইভনিং ডিউটি</option><option>নাইট ডিউটি</option></select><label>হাজিরার অবস্থা</label><select id="dutyStatus"><option>উপস্থিত</option><option>অনুপস্থিত</option><option>ছুটি</option></select><button class="full" onclick="saveDuty()">ডিউটি সেভ করুন</button></section>  
-<section id="otPage" class="page card hidden"><h3>⏱️ ওভারটাইম যোগ</h3><label>তারিখ</label><input id="otDate" type="date"><div class="row"><div><label>শুরু</label><input id="otStart" type="time"></div><div><label>শেষ</label><input id="otEnd" type="time"></div></div><p id="otHours" class="muted">মোট ওভারটাইম: ০ ঘণ্টা</p><button class="full" onclick="saveOT()">ওভারটাইম সেভ করুন</button></section>  
-<section id="profilePage" class="page card hidden"><h3>👤 প্রোফাইল</h3><label>কর্মীর নাম</label><input id="pName"><label>ছবি</label><input id="pPhoto" type="file" accept="image/*"><label>মোবাইল নম্বর (পরিবর্তন করা যাবে না)</label><input id="pPhone" disabled><label>কর্মী আইডি</label><input id="pId"><label>বিভাগ ও পদবি</label><select id="pRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select><button class="full" onclick="saveProfile()">সেভ করুন</button><button class="secondary full" style="margin-top:8px" onclick="logout()">লগআউট করুন</button></section>  
-<section id="contactsPage" class="page card hidden"><h3>📞 প্রয়োজনীয় নাম্বার</h3><div class="contactline"><b>নাম</b><b>ফোন</b><b>কল</b></div><div id="contacts"></div></section>  
-<section id="calendarPage" class="page card hidden"><h3>🗓️ হাজিরা ক্যালেন্ডার</h3><div class="row"><input id="calMonth" type="month"><button onclick="renderCalendar()">দেখুন</button></div><div class="calendar" id="calendar"></div><p class="muted">🟩 উপস্থিত　🟥 অনুপস্থিত　🟨 ছুটি</p></section>  
-<section id="historyPage" class="page card hidden"><h3>📋 ডিউটি দেখুন / এডিট</h3><p id="totals"></p><div class="tablewrap"><table><thead><tr><th>তারিখ</th><th>শিফট</th><th>অবস্থা</th><th>এডিট</th></tr></thead><tbody id="history"></tbody></table></div><h3 style="margin-top:20px">ওভারটাইম তালিকা</h3><div id="otList"></div></section>  
-<section id="updatesPage" class="page card hidden"><h3>🔄 আপডেট রানিং</h3><div class="notice">🔄 আপডেট রানিং — নতুন আপডেট প্রস্তুত হলে এখানে জানানো হবে।</div><p>• অ্যাপের নতুন আপডেট</p><p>• নতুন ফিচারের খবর</p><p>• গুরুত্বপূর্ণ নোটিশ</p><p>• রক্ষণাবেক্ষণ সংক্রান্ত বার্তা</p></section>  
-<section id="aboutPage" class="page card hidden"><h3>ℹ️ অ্যাপ সম্পর্কে</h3><h2>SAVAR FACTORY DUTY</h2><p>কারখানার কর্মীদের ডিউটি, হাজিরা ও ওভারটাইমের হিসাব সহজে সংরক্ষণের জন্য এই অ্যাপ তৈরি।</p><p>সুবিধা: ডিউটি যোগ, হাজিরা ক্যালেন্ডার, ওভারটাইম হিসাব, প্রোফাইল ও জরুরি যোগাযোগ।</p><p>ভার্সন: 1.0.0</p><p>ডেভেলপার: ISRAFIL KHAN ROHAN 📞01758706625</p></section>  
-<section id="supportPage" class="page card hidden"><h3>🎧 সাপোর্ট</h3><label>সমস্যার ধরন নির্বাচন করুন</label><select id="issue"><option>লগইন সমস্যা</option><option>রেজিস্ট্রেশন সমস্যা</option><option>ডিউটি যোগ করতে সমস্যা</option><option>হাজিরার তথ্য সংশোধন</option><option>ওভারটাইম সমস্যা</option><option>অন্যান্য</option></select><label>বিস্তারিত লিখুন</label><textarea id="issueText" rows="3" placeholder="আপনার সমস্যাটি লিখুন"></textarea><button class="full" onclick="sendSupport()">সাপোর্ট মেসেজ তৈরি করুন</button><a class="btn full" style="display:block;text-align:center;text-decoration:none;margin-top:10px" target="_blank" href="https://chat.whatsapp.com/CwOxniGGIcVGXtDmG5PV3G?s=cl&p=a&mlu=4&ilr=4&iam=2">WhatsApp সাপোর্ট গ্রুপে মেসেজ দিন</a></section>  
-</section>  
-</main>  
-<nav id="bottomNav" class="hidden"><button onclick="goHome()"><b>⌂</b>হোম</button><button onclick="openPage('historyPage')"><b>▤</b>হাজিরা</button><button onclick="openPage('supportPage')"><b>☏</b>সাপোর্ট</button><button onclick="openPage('profilePage')"><b>♙</b>প্রোফাইল</button></nav>  
-<script>  
-const $=id=>document.getElementById(id),get=(k,d=[])=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d)),put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));  
-let users=get('sfd_users'),duties=get('sfd_duties'),ots=get('sfd_overtime'),current=null,photoData='';  
-const contacts=[['সুপ: নাইমুল','01761233481'],['সুপ: সেলিম','01955574678'],['সুপ: সৌরভ','01739431493'],['সুপ: রফিক','01731374183'],['সুপ: সালাম','01791753736'],['সুপ: মনির-2','01719626063'],['সুপ: সফিক','01725566768'],['সুপ: ওয়াহিদ','01715534982'],['সুপ: কামরুজ্জামান','01724077575'],['সুপ: মুর্শেদ','01674083200'],['সুপ: মোস্তফা','01783244510'],['সুপ: জসিম','01775572237'],['সুপ: তবিবুর','01405790070'],['সুপ: দবির','01997194747'],['সুপ: নুরুল','01641199097']];  
-$('contacts').innerHTML=contacts.map(c=>`<div class="contactline"><b>${c[0]}</b><span>${c[1]}</span><a href="tel:${c[1]}">কল</a></div>`).join('');  
-function showLogin(){$('registerBox').classList.add('hidden');$('loginBox').classList.remove('hidden')}  
-function showRegister(){$('loginBox').classList.add('hidden');$('registerBox').classList.remove('hidden')}  
-function register(){let name=$('regName').value.trim(),id=$('regId').value.trim(),pass=$('regPass').value,role=$('regRole').value,phone=$('regPhone').value.trim();if(!name||!id||!pass||!phone)return alert('সব তথ্য পূরণ করুন');if(users.some(u=>u.phone===phone||u.id===id))return alert('এই নাম্বার বা আইডি দিয়ে অ্যাকাউন্ট আছে');let u={name,id,pass,role,phone};users.push(u);put('sfd_users',users);alert('রেজিস্ট্রেশন সফল! এখন লগইন করুন।');$('loginPhone').value=phone;showLogin()}  
-function login(){let phone=$('loginPhone').value.trim(),pass=$('loginPass').value,u=users.find(x=>x.phone===phone&&x.pass===pass);if(!u)return alert('নাম্বার অথবা পাসওয়ার্ড ভুল');current=u;enterApp()}  
-function enterApp(){document.body.classList.add('app-open');$('authView').classList.add('hidden');$('appView').classList.remove('hidden');$('bottomNav').classList.remove('hidden');$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id;let d=new Date();$('todayDate').innerHTML=d.toLocaleString('en-GB',{day:'2-digit',month:'short'})+'<br>'+d.getFullYear();fillProfile();goHome()}  
-function logout(){document.body.classList.remove("app-open");current=null;$('appView').classList.add('hidden');$('bottomNav').classList.add('hidden');$('authView').classList.remove('hidden');showLogin()}  
-function goHome(){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$('homePage').classList.remove('hidden')}  
-function openPage(id){$('homePage').classList.add('hidden');document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');if(id==='historyPage')renderHistory();if(id==='calendarPage'){if(!$('calMonth').value)$('calMonth').value=new Date().toISOString().slice(0,7);renderCalendar()}}  
-function saveDuty(){let date=$('dutyDate').value;if(!date)return alert('তারিখ নির্বাচন করুন');let i=duties.findIndex(d=>d.phone===current.phone&&d.date===date);let item={phone:current.phone,date,shift:$('dutyShift').value,status:$('dutyStatus').value};if(i>=0)duties[i]=item;else duties.push(item);put('sfd_duties',duties);alert('ডিউটি সেভ হয়েছে');renderHistory()}  
-function hours(){let a=$('otStart').value,b=$('otEnd').value;if(a&&b){let [h,m]=a.split(':').map(Number),[x,y]=b.split(':').map(Number),n=(x*60+y)-(h*60+m);if(n<0)n+=1440;$('otHours').textContent='মোট ওভারটাইম: '+(n/60).toFixed(2)+' ঘণ্টা'}}  
-$('otStart').addEventListener('change',hours);$('otEnd').addEventListener('change',hours);  
-function saveOT(){let date=$('otDate').value,start=$('otStart').value,end=$('otEnd').value;if(!date||!start||!end)return alert('তারিখ ও সময় দিন');let [h,m]=start.split(':').map(Number),[x,y]=end.split(':').map(Number),n=(x*60+y)-(h*60+m);if(n<0)n+=1440;ots.push({phone:current.phone,date,start,end,hours:(n/60).toFixed(2)});put('sfd_overtime',ots);alert('ওভারটাইম সেভ হয়েছে');renderHistory()}  
-function fillProfile(){$('pName').value=current.name;$('pPhone').value=current.phone;$('pId').value=current.id;$('pRole').value=current.role;photoData=current.photo||'';$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id}  
-$('pPhoto').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>photoData=r.result;r.readAsDataURL(f)});  
-function saveProfile(){current.name=$('pName').value.trim();current.id=$('pId').value.trim();current.role=$('pRole').value;current.photo=photoData;users=users.map(u=>u.phone===current.phone?current:u);put('sfd_users',users);$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id;$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';alert('প্রোফাইল আপডেট হয়েছে')}  
-function renderHistory(){let mine=duties.filter(d=>d.phone===current.phone).sort((a,b)=>b.date.localeCompare(a.date)),present=mine.filter(d=>d.status==='উপস্থিত').length;$('totals').textContent=`মোট এন্ট্রি: ${mine.length} | উপস্থিতি: ${present} | মোট ডিউটি ঘণ্টা (প্রতি শিফট ৮ ঘণ্টা): ${present*8}`;$('history').innerHTML=mine.map(d=>`<tr><td>${d.date}</td><td>${d.shift}</td><td>${d.status}</td><td><button class="secondary" onclick="editDuty('${d.date}')">এডিট</button></td></tr>`).join('')||'<tr><td colspan="4">এখনো কোনো ডিউটি যোগ করা হয়নি</td></tr>';$('otList').innerHTML=ots.filter(o=>o.phone===current.phone).map(o=>`<p>${o.date} | ${o.start}-${o.end} | ${o.hours} ঘণ্টা</p>`).join('')||'ওভারটাইম নেই'}  
-function editDuty(date){let d=duties.find(x=>x.phone===current.phone&&x.date===date);if(!d)return;$('dutyDate').value=d.date;$('dutyShift').value=d.shift;$('dutyStatus').value=d.status;openPage('dutyPage')}  
-function renderCalendar(){let val=$('calMonth').value;if(!val)return;let [y,m]=val.split('-').map(Number),count=new Date(y,m,0).getDate(),first=new Date(y,m-1,1).getDay(),html=['রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র','শনি'].map(x=>`<div class="day"><b>${x}</b></div>`).join('');for(let i=0;i<first;i++)html+='<div class="day"></div>';for(let d=1;d<=count;d++){let date=`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,r=duties.find(x=>x.phone===current.phone&&x.date===date),cls=r?(r.status==='উপস্থিত'?'present':r.status==='অনুপস্থিত'?'absent':'leave'):'';html+=`<div class="day ${cls}" title="${r?r.status:'ডিউটি যোগ হয়নি'}">${d}${r?'<br>●':''}</div>`}$('calendar').innerHTML=html}  
-function adminLogin(){let p=prompt('System Status: Active 🟢');if(p===null)return;if(p!=='ADMIN@1234')return alert('ভুল পাসওয়ার্ড');let html=`মোট অ্যাকাউন্ট: ${users.length}\nমোট ডিউটি এন্ট্রি: ${duties.length}\n\n`;users.forEach((u,i)=>html+=`${i+1}. ${u.name} | ${u.id} | ${u.phone} | ডিউটি: ${duties.filter(d=>d.phone===u.phone).length}\n`);let choice=prompt(html+'\nকোনো কর্মীর নাম/আইডি/পদবি এডিট করতে তার মোবাইল নম্বর লিখুন:');if(!choice)return;let u=users.find(x=>x.phone===choice);if(!u)return alert('অ্যাকাউন্ট পাওয়া যায়নি');let name=prompt('নতুন নাম',u.name);if(name===null)return;let id=prompt('নতুন আইডি',u.id);if(id===null)return;let role=prompt('নতুন পদবি (নিরাপত্তা কর্মী/সুপারভাইজার/ম্যানেজার/অন্য)',u.role);if(role===null)return;u.name=name;u.id=id;u.role=role;put('sfd_users',users);alert('অ্যাকাউন্ট আপডেট হয়েছে')}  
-function sendSupport(){let msg='সমস্যা: '+$('issue').value+'\nবিস্তারিত: '+$('issueText').value+'\nনাম: '+current.name+'\nআইডি: '+current.id;location.href='https://wa.me/?text='+encodeURIComponent(msg)}  
-$('dutyDate').value=new Date().toISOString().slice(0,10);$('otDate').value=new Date().toISOString().slice(0,10);  
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAVAR FACTORY WORK</title>
+<style>
+:root{--ink:#f8fafc;--neon:#00f58a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#020b0a;color:#f8fafc}
+header{background:linear-gradient(120deg,#031b13,#002d20);color:#fff;padding:11px 15px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;border-bottom:1px solid #00df83}
+header h2{font-size:16px;margin:0;letter-spacing:.4px}
+#adminBtn{border:2px solid #facc15;background:#071c15;color:#facc15;border-radius:50%;width:40px;height:40px;font-size:20px;font-weight:900}
+main{max-width:560px;margin:auto;padding:10px 10px 88px}
+.card{background:#fff;color:#172033;border-radius:17px;padding:16px;margin:12px 0;box-shadow:0 5px 18px #0006;border:1px solid #dbeafe}
+h3{margin:0 0 13px;color:#253b76}.muted{color:#64748b;font-size:13px}
+input,select,textarea,button{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:10px;background:#fbfdff;margin:5px 0 10px}label{font-size:13px;font-weight:bold;color:#334155}
+button,.btn{border:0;border-radius:10px;padding:11px 15px;background:linear-gradient(100deg,#2563eb,#7541c8);color:white;font-weight:bold;cursor:pointer}button.secondary{background:#e8efff;color:#24438c}button.danger{background:#dc3545}.full{width:100%}
+#homePage{background:radial-gradient(ellipse at top,#063b25 0%,#00110d 48%,#000 100%);padding:12px 9px 18px;border-radius:22px;overflow:hidden;min-height:0 !important;height:auto !important}
+.brand-head{display:flex;align-items:center;gap:12px;padding:8px 7px 17px;position:relative}
+.factory-mark{font-size:54px;line-height:1;color:#ffe000;filter:drop-shadow(0 0 8px #c8ff00)}
+.brand-title{font-size:27px;line-height:1.12;font-weight:900;color:#fff;text-shadow:0 2px 8px #000}
+.brand-sub{color:#ffe000;font-weight:800;font-size:15px;margin-top:7px}
+.brand-admin{margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:3px}
+.brand-admin button{border:2px solid #facc15;color:#ffdf00;background:#06130e;border-radius:50%;width:55px;height:55px;font-size:28px;padding:0;box-shadow:0 0 12px #e6d00055}
+.brand-admin small{border:1px solid #8b7a13;border-radius:18px;padding:3px 8px;color:#fff;font-size:11px}
+.profile-strip{display:grid;grid-template-columns:1fr 130px;gap:9px;margin:4px 0 17px}
+.user-panel,.date-panel{background:linear-gradient(110deg,#03182b,#061e35);border:2px solid #087bd7;border-radius:20px;min-height:118px;display:flex;align-items:center;padding:10px;box-shadow:0 0 14px #007bff33}
+.user-panel{gap:10px;min-width:0}.avatar{width:82px;height:82px;border-radius:50%;border:4px solid #dfff00;background:linear-gradient(135deg,#214d69,#0a1725);display:flex;align-items:center;justify-content:center;font-size:35px;flex-shrink:0;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.user-meta{font-size:16px;font-weight:800;min-width:0;overflow-wrap:anywhere}.user-meta small{display:block;font-size:14px;font-weight:600;margin-top:5px}
+.active-dot{color:#22f65d;font-size:14px;margin-top:7px}.date-panel{border-color:#00e6ba;background:linear-gradient(140deg,#003c36,#005b48);justify-content:center;gap:8px;color:#fff;font-weight:800;font-size:16px;text-align:center}
+.date-panel span{font-size:28px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tile{min-height:116px;border:2px solid transparent;border-radius:20px;color:white;font-weight:900;font-size:16px;box-shadow:0 5px 14px #0008,inset 0 0 10px #ffffff20;padding:10px 5px;text-shadow:0 1px 3px #0008;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;line-height:1.25}
+.tile span{display:block;font-size:35px;margin:0;line-height:1}
+.t1{background:linear-gradient(145deg,#00d900,#008c12);border-color:#54ff19;box-shadow:0 0 13px #39ff00aa,inset 0 0 13px #fff3}
+.t2{background:linear-gradient(145deg,#087bff,#0038b7);border-color:#00aaff;box-shadow:0 0 13px #008dffaa,inset 0 0 13px #fff3}
+.t3{background:linear-gradient(145deg,#ff9e00,#e65b00);border-color:#ffbd32;box-shadow:0 0 13px #ff8a00aa,inset 0 0 13px #fff3}
+.t4{background:linear-gradient(145deg,#9200ff,#5100bd);border-color:#d000ff;box-shadow:0 0 13px #a000ffaa,inset 0 0 13px #fff3}
+.t5{background:linear-gradient(145deg,#00a92b,#006c20);border-color:#00f52c;box-shadow:0 0 13px #00ed35aa,inset 0 0 13px #fff3}
+.t6{background:linear-gradient(145deg,#075dff,#0029a5);border-color:#1688ff;box-shadow:0 0 13px #006effaa,inset 0 0 13px #fff3}
+.t7{background:linear-gradient(145deg,#ff1d27,#bd0012);border-color:#ff4b4b;box-shadow:0 0 13px #ff002baa,inset 0 0 13px #fff3}
+.t8{background:linear-gradient(145deg,#00c82b,#008318);border-color:#35ff28;box-shadow:0 0 13px #00ed35aa,inset 0 0 13px #fff3}
+.t9{background:linear-gradient(145deg,#9b00ed,#5100a8);border-color:#db36ff;box-shadow:0 0 13px #a000ffaa,inset 0 0 13px #fff3}
+.hidden{display:none!important}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px;min-width:320px}th,td{padding:9px;border-bottom:1px solid #e5e7eb;text-align:left}th{background:#eef2ff;color:#263b78}.pill{padding:4px 8px;border-radius:20px;font-size:12px;font-weight:bold}.present{background:#d1fae5;color:#047857}.absent{background:#fee2e2;color:#b91c1c}.leave{background:#fef3c7;color:#92400e}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{background:#f1f5f9;border-radius:8px;text-align:center;padding:9px 2px;font-size:12px;min-height:45px}.day.present{background:#bbf7d0}.day.absent{background:#fecaca}.day.leave{background:#fde68a}
+nav{position:fixed;bottom:0;left:0;right:0;background:#020c0a;border:1px solid #00d878;box-shadow:0 -3px 18px #00e88733;display:flex;justify-content:space-around;padding:8px 3px calc(8px + env(safe-area-inset-bottom));z-index:8;border-radius:18px 18px 0 0}
+nav button{background:transparent;color:#f8fafc;padding:7px 12px;font-size:12px}nav button b{display:block;font-size:23px;color:#00f58a}
+.auth{max-width:440px;margin:5vh auto;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;color:#fff}
+.auth-shell{width:100%;background:linear-gradient(145deg,#062b20,#03130f);border:1px solid #00e88a;border-radius:24px;padding:23px 20px;box-shadow:0 0 35px #00f58a33;text-align:left;animation:adminPop .25s ease}
+.auth-brand-icon{width:76px;height:76px;margin:0 auto 13px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:39px;background:#06452e;border:2px solid #00f58a;box-shadow:0 0 20px #00f58a55}
+.auth h1{text-align:center;color:#00f58a;font-size:22px;margin:5px 0 4px;text-shadow:0 0 10px #00f58a44}
+.auth-subtitle{text-align:center;color:#b7d9ca;font-size:13px;margin:0 0 22px}
+.auth h3{color:#00f58a;font-size:18px;margin:0 0 17px;text-align:center}
+.auth label{display:block;color:#d5eee4;font-size:13px;margin-top:5px}
+.auth input,.auth select{background:#f8fffb;color:#10251b;border:1px solid #74cba5;border-radius:12px;padding:13px;margin:6px 0 12px}
+.auth input:focus,.auth select:focus{outline:2px solid #00e88a;border-color:#00e88a}
+.auth button.full{background:linear-gradient(100deg,#00a96b,#00d987);color:#002719;border:1px solid #59ffc0;border-radius:12px;padding:13px;font-weight:900;box-shadow:0 5px 16px #00e88733;margin-top:7px}
+.auth .muted{text-align:center;color:#b7d9ca;margin:17px 0 0;font-size:13px}
+.auth a{color:#00f58a;font-weight:800;text-decoration:none}
+.contactline{display:grid;grid-template-columns:1fr 1fr auto;gap:7px;align-items:center;padding:8px 0;border-bottom:1px solid #edf0f5;font-size:13px}.contactline a{background:#0d9b68;color:white;text-decoration:none;padding:8px 11px;border-radius:8px}
+.notice{background:#fff7ed;border-left:4px solid #f59e0b;padding:12px;border-radius:9px;font-size:13px}
+@media(max-width:520px){main{padding:7px 7px 85px}.brand-title{font-size:23px}.factory-mark{font-size:45px}.profile-strip{grid-template-columns:minmax(0,1fr) 112px;gap:7px}.user-panel,.date-panel{min-height:104px;padding:7px}.avatar{width:65px;height:65px}.user-meta{font-size:13px}.user-meta small{font-size:12px}.date-panel{font-size:14px}.tile{font-size:13px;min-height:104px;border-radius:17px}.tile span{font-size:31px}.grid{gap:8px}}
+@media(max-width:360px){.brand-title{font-size:20px}.profile-strip{grid-template-columns:minmax(0,1fr) 100px}.avatar{width:55px;height:55px}.tile{font-size:11px;min-height:95px}}
+body.app-open>header{display:none}
+body.home-open main{padding-bottom:8px!important}
+body.admin-open main{padding-bottom:18px!important}
+.admin-dashboard{background:linear-gradient(145deg,#041c16,#00100c);color:#fff;border:1px solid #00d878;border-radius:20px;padding:16px;margin:8px 0;box-shadow:0 0 18px #00e88722}
+.admin-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.admin-top h2{font-size:21px;color:#00f58a;margin:0}
+.admin-top small{color:#b5d9ca}
+.admin-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.admin-stat{background:linear-gradient(135deg,#073c2a,#092b48);border:1px solid #00c879;border-radius:15px;padding:14px;text-align:center}
+.admin-stat b{display:block;font-size:26px;color:#00f58a;margin-top:5px}
+.admin-stat span{font-size:12px;color:#d5eee4}
+.admin-dashboard h3{color:#00f58a;margin:12px 0}
+.admin-worker{display:flex;align-items:center;gap:9px;background:#f8fafc;color:#172033;padding:10px;border-radius:12px;margin:8px 0}
+.admin-worker-info{flex:1;min-width:0;font-size:13px;overflow-wrap:anywhere}
+.admin-worker-info small{display:block;color:#64748b;margin-top:4px}
+.admin-worker button{padding:8px 10px;font-size:12px}
+.admin-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}
+.admin-actions button{font-size:13px}
+
+/* Home screen: remove viewport-sized empty area below the dashboard tiles */
+#appView{height:auto!important;min-height:0!important}
+#homePage{
+  min-height:unset!important;
+  height:auto!important;
+  block-size:fit-content!important;
+  padding-bottom:4px!important;
+  margin-bottom:0!important;
+ }
+
+/* PREMIUM ADMIN LOGIN */
+.admin-modal{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
+.admin-login-box{width:100%;max-width:360px;background:linear-gradient(145deg,#062b20,#03130f);border:1px solid #00e88a;border-radius:24px;padding:25px 22px;box-shadow:0 0 35px #00f58a44;text-align:center;animation:adminPop .25s ease}
+@keyframes adminPop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.admin-lock{width:75px;height:75px;margin:0 auto 15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:38px;background:#06452e;border:2px solid #00f58a;box-shadow:0 0 20px #00f58a55}
+.admin-login-box h2{color:#00f58a;margin:8px 0;font-size:23px}
+.admin-login-box p{color:#b7d9ca;font-size:13px;margin-bottom:20px}
+.admin-password-wrap{position:relative}
+.admin-password-wrap input{background:#fff;color:#111;padding:14px;padding-right:48px;border-radius:12px}
+.admin-password-wrap span{position:absolute;right:14px;top:17px;font-size:20px;cursor:pointer}
+.admin-error{color:#ff6565;font-size:13px;margin:5px 0 12px;min-height:18px}
+.admin-login-box button{width:100%;margin-top:8px}
+.admin-cancel{background:#263c35;color:#fff}
+
+
+/* PREMIUM GREEN GLASS THEME — visual styling only; app logic and markup remain unchanged */
+:root{--theme-green:#00f58a;--theme-mint:#b7d9ca;--theme-panel:#062b20;--theme-deep:#03130f;--theme-line:#087b55}
+.page.card:not(#homePage){
+ background:linear-gradient(145deg,rgba(6,43,32,.98),rgba(2,18,14,.99))!important;
+ color:#f4fff9!important;border:1px solid #00c879!important;border-radius:22px!important;
+ box-shadow:0 8px 28px #0008,0 0 20px #00e88720!important;padding:19px!important;
+}
+.page.card h3,.page.card h2{color:var(--theme-green)!important;text-shadow:0 0 12px #00f58a22}
+.page.card p,.page.card .muted{color:#c0d9ce!important}
+.page.card label{color:#d5eee4!important}
+.page.card input,.page.card select,.page.card textarea{
+ background:#f5fff9!important;color:#10251b!important;border:1px solid #65bd98!important;
+ border-radius:12px!important;padding:12px!important;box-shadow:inset 0 1px 3px #001b1030;
+}
+.page.card input:focus,.page.card select:focus,.page.card textarea:focus{outline:2px solid #00e88a!important;border-color:#00e88a!important}
+.page.card input:disabled{background:#dcebe3!important;color:#52665c!important}
+.page.card button:not(.tile),.page.card .btn{
+ background:linear-gradient(110deg,#008e5a,#00d987)!important;color:#002719!important;
+ border:1px solid #56f6b5!important;border-radius:12px!important;font-weight:900!important;
+ box-shadow:0 5px 15px #00e88725!important;
+}
+.page.card button.secondary{background:linear-gradient(110deg,#174d3b,#236b50)!important;color:#eafff4!important;border-color:#3d9d76!important}
+.page.card button.danger{background:linear-gradient(110deg,#a82e3d,#e34a55)!important;color:#fff!important;border-color:#ff8c91!important}
+.page.card .contactline{color:#eafff4!important;border-bottom:1px solid #1d5943!important;padding:11px 2px}
+.page.card .contactline a{background:linear-gradient(110deg,#008e5a,#00d987)!important;color:#002719!important;font-weight:900}
+.page.card .notice{background:linear-gradient(120deg,#173d2d,#23472f)!important;color:#eaffd5!important;border-left:4px solid #b7ef62!important;border-radius:12px!important}
+.page.card .tablewrap{border:1px solid #176044;border-radius:12px;overflow:auto}
+.page.card table{color:#eafff4!important}
+.page.card th{background:#0b4a34!important;color:#9dffd0!important;border-bottom:1px solid #23845c!important}
+.page.card td{border-bottom:1px solid #194b39!important;color:#e1f4e9!important}
+.page.card .day{background:linear-gradient(145deg,#123c2d,#0b2a20)!important;color:#eafff4!important;border:1px solid #236348!important;border-radius:9px}
+.page.card .day.present{background:#145b3b!important;color:#baffd8!important;border-color:#36d88b!important}
+.page.card .day.absent{background:#632b32!important;color:#ffd5d8!important;border-color:#e56a75!important}
+.page.card .day.leave{background:#65501d!important;color:#fff0b8!important;border-color:#d9b84d!important}
+.admin-worker{background:linear-gradient(120deg,#0b3a2a,#102d3b)!important;color:#effff6!important;border:1px solid #16845a!important;box-shadow:0 4px 12px #0004}
+.admin-worker-info small{color:#b7d9ca!important}
+.admin-worker button{background:linear-gradient(110deg,#008e5a,#00d987)!important;color:#002719!important}
+#otList p{background:#0b3a2a;border:1px solid #176044;border-radius:10px;padding:10px;color:#eafff4}
+@media(max-width:520px){.page.card:not(#homePage){padding:15px!important;border-radius:19px!important}}
+
+
+/* PREMIUM HOME PAGE FINISH — CSS only; no app logic or functionality changed */
+#homePage{
+  position:relative!important;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 50% -8%,rgba(0,245,138,.20),transparent 42%),
+    radial-gradient(circle at 100% 48%,rgba(0,126,86,.16),transparent 32%),
+    linear-gradient(155deg,#06251b 0%,#031710 48%,#010907 100%)!important;
+  border:1px solid rgba(0,245,138,.32)!important;
+  border-radius:26px!important;
+  padding:15px 11px 13px!important;
+  box-shadow:0 12px 32px #0009,inset 0 1px 0 #baffdf18,0 0 24px #00e88718!important;
+}
+#homePage .brand-head{
+  padding:9px 8px 19px!important;
+  margin-bottom:7px;
+  border-bottom:1px solid rgba(0,245,138,.22);
+}
+#homePage .factory-mark{
+  filter:drop-shadow(0 0 8px #00f58a88)!important;
+}
+#homePage .brand-title{
+  letter-spacing:.7px!important;
+  text-shadow:0 2px 4px #000,0 0 18px #00f58a38!important;
+}
+#homePage .brand-sub{
+  display:inline-block;
+  padding:5px 10px;
+  border:1px solid #00b87566;
+  border-radius:20px;
+  background:linear-gradient(90deg,#06452e99,#06332366);
+  color:#aaffd5!important;
+  font-size:11px!important;
+  letter-spacing:.7px;
+}
+#homePage .brand-admin button{
+  background:linear-gradient(145deg,#0b5439,#031a12)!important;
+  border:1px solid #00f58a!important;
+  color:#baffdc!important;
+  box-shadow:0 0 0 4px #00f58a12,0 0 19px #00f58a55!important;
+}
+#homePage .brand-admin small{
+  background:#062b20!important;
+  border-color:#16845a!important;
+  color:#baffdc!important;
+  letter-spacing:.4px;
+}
+#homePage .profile-strip{gap:10px!important;margin:7px 0 18px!important}
+#homePage .user-panel,#homePage .date-panel{
+  background:linear-gradient(135deg,#0b3b2a,#092b25 58%,#08253a)!important;
+  border:1px solid #159b68!important;
+  border-radius:19px!important;
+  box-shadow:0 7px 18px #0005,inset 0 1px 0 #ffffff18,0 0 13px #00d87818!important;
+}
+#homePage .avatar{
+  border:3px solid #00f5a0!important;
+  background:linear-gradient(145deg,#17664a,#09271d)!important;
+  box-shadow:0 0 0 4px #00f58a16,0 0 16px #00f58a33!important;
+}
+#homePage .user-meta{color:#f2fff8!important}
+#homePage .user-meta small{color:#b7d9ca!important}
+#homePage .active-dot{color:#75ffb7!important;text-shadow:0 0 9px #00f58a66}
+#homePage .date-panel{
+  background:linear-gradient(145deg,#07513b,#063a32)!important;
+  border-color:#00d995!important;
+  color:#dffff0!important;
+}
+#homePage .date-panel span{color:#83ffc2;text-shadow:0 0 12px #00f58a77}
+#homePage .grid{gap:10px!important}
+#homePage .tile{
+  position:relative;
+  overflow:hidden;
+  min-height:116px!important;
+  border:1px solid rgba(118,255,195,.62)!important;
+  border-radius:19px!important;
+  background:linear-gradient(145deg,#126746 0%,#08432f 55%,#06271d 100%)!important;
+  color:#f1fff8!important;
+  box-shadow:0 7px 17px #0007,inset 0 1px 0 #ffffff30,inset 0 -13px 24px #001c123d!important;
+  text-shadow:0 1px 4px #00180f!important;
+  transition:transform .16s ease,box-shadow .16s ease;
+}
+#homePage .tile:before{
+  content:"";
+  position:absolute;
+  width:90px;height:90px;
+  right:-36px;top:-43px;
+  border-radius:50%;
+  background:rgba(173,255,215,.10);
+  pointer-events:none;
+}
+#homePage .tile:active{transform:scale(.97);box-shadow:0 3px 9px #0008,inset 0 1px 0 #ffffff25!important}
+#homePage .tile span{
+  width:49px;height:49px;
+  display:flex!important;align-items:center;justify-content:center;
+  border-radius:15px;
+  background:linear-gradient(145deg,#d5ffeb20,#00f58a12);
+  border:1px solid #aaffd533;
+  font-size:30px!important;
+  filter:drop-shadow(0 2px 4px #00180f88);
+}
+#homePage .tile.t1,#homePage .tile.t2,#homePage .tile.t3,
+#homePage .tile.t4,#homePage .tile.t5,#homePage .tile.t6,
+#homePage .tile.t7,#homePage .tile.t8,#homePage .tile.t9{
+  background:linear-gradient(145deg,#126746 0%,#08432f 55%,#06271d 100%)!important;
+  border-color:#32c98c!important;
+  box-shadow:0 7px 17px #0007,inset 0 1px 0 #ffffff30,inset 0 -13px 24px #001c123d!important;
+}
+@media(max-width:520px){
+ #homePage{padding:12px 9px 12px!important;border-radius:22px!important}
+ #homePage .grid{gap:8px!important}
+ #homePage .tile{min-height:106px!important;border-radius:17px!important}
+ #homePage .tile span{width:43px;height:43px;font-size:27px!important;border-radius:13px}
+}
+
+
+/* ALTERNATE PREMIUM HOME STYLE — CSS only; all app functions remain unchanged */
+#homePage{
+  background:
+    linear-gradient(rgba(0,245,138,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,245,138,.035) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% 0%,#0b4933 0%,#06271d 38%,#020d09 100%)!important;
+  background-size:24px 24px,24px 24px,auto!important;
+  border:1px solid #38d99a!important;
+  border-radius:28px!important;
+  box-shadow:0 16px 38px #000a,inset 0 1px 0 #d6ffea22,0 0 28px #00f58a20!important;
+  padding:16px 12px 14px!important;
+}
+#homePage .brand-head{
+  padding:10px 10px 18px!important;
+  border-bottom:1px solid #48dba366!important;
+  margin-bottom:12px!important;
+}
+#homePage .factory-mark{
+  width:60px;height:60px;display:flex;align-items:center;justify-content:center;
+  border-radius:19px;background:linear-gradient(145deg,#146c4a,#06281c);
+  border:1px solid #69e8b2;box-shadow:0 7px 18px #0007,inset 0 1px 0 #fff3;
+  font-size:39px!important;filter:none!important;
+}
+#homePage .brand-title{font-size:clamp(20px,5vw,27px)!important;letter-spacing:1px!important}
+#homePage .brand-sub{background:#031c14cc!important;border:1px solid #36b982!important;color:#9fffd0!important}
+#homePage .brand-admin button{
+  border-radius:17px!important;width:51px!important;height:51px!important;
+   background:linear-gradient(145deg,#f3d77b,#9b7223)!important;color:#142318!important;
+  border:1px solid #ffe9a3!important;box-shadow:0 6px 15px #0007,inset 0 1px 0 #fff9!important;
+}
+#homePage .brand-admin small{background:#092d20!important;border:1px solid #c5a44d!important;color:#ffe9a3!important}
+#homePage .profile-strip{gap:9px!important;margin:9px 0 17px!important}
+#homePage .user-panel,#homePage .date-panel{
+  background:linear-gradient(145deg,#102f27ed,#071b19f2)!important;
+  border:1px solid #3bbd88!important;border-radius:17px!important;
+  box-shadow:0 8px 20px #0007,inset 0 1px 0 #ffffff20!important;
+}
+#homePage .avatar{border:2px solid #f0d27a!important;box-shadow:0 0 0 4px #f0d27a18,0 5px 14px #0008!important}
+#homePage .date-panel{border-color:#c6a34c!important;background:linear-gradient(145deg,#183e31,#10291f)!important}
+#homePage .date-panel span{color:#ffe39a!important;text-shadow:0 0 12px #e9c66a66!important}
+#homePage .grid{gap:11px!important}
+#homePage .tile{
+  min-height:112px!important;border-radius:16px!important;
+  background:linear-gradient(155deg,#174b39 0%,#0b3025 58%,#071d17 100%)!important;
+  border:1px solid #3eaa7d!important;
+  box-shadow:0 8px 16px #0008,inset 0 1px 0 #ffffff24,inset 0 -3px 0 #00d98755!important;
+  color:#f2fff8!important;font-size:14px!important;letter-spacing:.1px;
+  text-shadow:0 1px 3px #000!important;
+}
+#homePage .tile:before{width:115px;height:115px;right:-58px;top:-66px;background:#d8ffeb0d!important;border:1px solid #baffdf14}
+#homePage .tile span{
+  width:46px!important;height:46px!important;border-radius:14px!important;
+  background:linear-gradient(145deg,#e3fff0,#a6e8c8)!important;
+  border:1px solid #effff6!important;color:#06412b!important;
+  filter:drop-shadow(0 4px 5px #0005)!important;
+}
+#homePage .tile:active{transform:translateY(2px) scale(.98)!important}
+@media(max-width:520px){
+ #homePage{padding:13px 9px 12px!important;border-radius:23px!important}
+ #homePage .grid{gap:8px!important}
+ #homePage .tile{min-height:104px!important;border-radius:15px!important;font-size:12px!important}
+ #homePage .tile span{width:41px!important;height:41px!important;font-size:25px!important;border-radius:12px!important}
+}
+
+</style></head>
+<body>
+<header><h2>🏭SF_SAVAR FACTORY</h2><button id="adminBtn" title="Admin Panel" onclick="adminLogin()">R</button></header>
+<main>
+<section id="authView" class="auth">
+<div class="auth-shell">
+<div class="auth-brand-icon">🏭</div>
+<h1>SF_SAVAR FACTORY</h1>
+<p class="auth-subtitle">কর্মীদের ডিজিটাল উপস্থিতি ও তথ্য ব্যবস্থাপনা</p>
+<div id="registerBox"><h3>✨ নতুন অ্যাকাউন্ট তৈরি করুন</h3>
+<label>ফুল নাম</label><input id="regName" placeholder="আপনার নাম">
+<label>আইডি নাম্বার</label><input id="regId" placeholder="কর্মী আইডি">
+<label>পাসওয়ার্ড</label><input id="regPass" type="password" placeholder="পাসওয়ার্ড">
+<label>পদবি নির্বাচন</label><select id="regRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select>
+<label>মোবাইল নাম্বার</label><input id="regPhone" type="tel" placeholder="01XXXXXXXXX">
+<button class="full" onclick="register()">রেজিস্ট্রেশন করুন</button>
+<p class="muted">আগে অ্যাকাউন্ট খুলেছেন <a href="#" onclick="showLogin()">লগইন করুন</a></p></div>
+<div id="loginBox" class="hidden"><h3>🔐 অ্যাকাউন্টে প্রবেশ করুন</h3><label>মোবাইল নাম্বার</label><input id="loginPhone" type="tel"><label>পাসওয়ার্ড দিন</label><input id="loginPass" type="password"><button class="full" onclick="login()">প্রবেশ করুন</button><p class="muted">অ্যাকাউন্ট নেই? <a href="#" onclick="showRegister()">রেজিস্ট্রেশন করতে হবে</a></p></div>
+</div>
+</section>
+<section id="appView" class="hidden">
+<div id="homePage">
+<div class="brand-head">
+ <div class="factory-mark">🏭</div>
+ <div><div class="brand-title">SAVAR<br>FACTORY WORK</div><div class="brand-sub">Attendance Made Easy</div></div>
+ <div class="brand-admin"><button onclick="adminLogin()">A</button><small>Admin ▾</small></div>
+</div>
+<div class="profile-strip">
+ <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ Active</div></div></div>
+ <div class="date-panel"><span>▦</span><div id="todayDate">আজকের তারিখ</div></div>
+</div>
+<div class="grid">
+<button class="tile t1" onclick="openPage('dutyPage')"><span>🕒</span> ডিউটি যোগ</button>
+<button class="tile t2" onclick="openPage('otPage')"><span>⏱️</span> ওভারটাইম যোগ</button>
+<button class="tile t3" onclick="openPage('profilePage')"><span>👤</span> প্রোফাইল</button>
+<button class="tile t4" onclick="openPage('contactsPage')"><span>📞</span> প্রয়োজনীয় নাম্বার</button>
+<button class="tile t5" onclick="openPage('calendarPage')"><span>🗓️</span> ক্যালেন্ডার</button>
+<button class="tile t6" onclick="openPage('historyPage')"><span>📋</span> ডিউটি দেখুন</button>
+<button class="tile t7" onclick="openPage('updatesPage')"><span>🔄</span> আপডেট রানিং</button>
+<button class="tile t8" onclick="openPage('aboutPage')"><span>ℹ️</span> অ্যাপ সম্পর্কে</button>
+<button class="tile t9" onclick="openPage('supportPage')"><span>🎧</span> সাপোর্ট</button>
+</div></div>
+<section id="dutyPage" class="page card hidden"><h3>🕒 ডিউটি যোগ</h3><label>ডিউটির তারিখ</label><input id="dutyDate" type="date"><label>ডিউটি শিফট</label><select id="dutyShift"><option>মর্নিং ডিউটি</option><option>ইভনিং ডিউটি</option><option>নাইট ডিউটি</option></select><label>হাজিরার অবস্থা</label><select id="dutyStatus"><option>উপস্থিত</option><option>অনুপস্থিত</option><option>ছুটি</option></select><button class="full" onclick="saveDuty()">ডিউটি সেভ করুন</button></section>
+<section id="otPage" class="page card hidden"><h3>⏱️ ওভারটাইম যোগ</h3><label>তারিখ</label><input id="otDate" type="date"><div class="row"><div><label>শুরু</label><input id="otStart" type="time"></div><div><label>শেষ</label><input id="otEnd" type="time"></div></div><p id="otHours" class="muted">মোট ওভারটাইম: ০ ঘণ্টা</p><button class="full" onclick="saveOT()">ওভারটাইম সেভ করুন</button></section>
+<section id="profilePage" class="page card hidden"><h3>👤 প্রোফাইল</h3><label>কর্মীর নাম</label><input id="pName"><label>ছবি</label><input id="pPhoto" type="file" accept="image/*"><label>মোবাইল নম্বর (পরিবর্তন করা যাবে না)</label><input id="pPhone" disabled><label>কর্মী আইডি</label><input id="pId"><label>বিভাগ ও পদবি</label><select id="pRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select><button class="full" onclick="saveProfile()">সেভ করুন</button><button class="secondary full" style="margin-top:8px" onclick="logout()">লগআউট করুন</button></section>
+<section id="contactsPage" class="page card hidden"><h3>📞 প্রয়োজনীয় নাম্বার</h3><div class="contactline"><b>নাম</b><b>ফোন</b><b>কল</b></div><div id="contacts"></div></section>
+<section id="calendarPage" class="page card hidden"><h3>🗓️ হাজিরা ক্যালেন্ডার</h3><div class="row"><input id="calMonth" type="month"><button onclick="renderCalendar()">দেখুন</button></div><div class="calendar" id="calendar"></div><p class="muted">🟩 উপস্থিত　🟥 অনুপস্থিত　🟨 ছুটি</p></section>
+<section id="historyPage" class="page card hidden"><h3>📋 ডিউটি দেখুন / এডিট</h3><p id="totals"></p><div class="tablewrap"><table><thead><tr><th>তারিখ</th><th>শিফট</th><th>অবস্থা</th><th>এডিট</th></tr></thead><tbody id="history"></tbody></table></div><h3 style="margin-top:20px">ওভারটাইম তালিকা</h3><div id="otList"></div></section>
+<section id="updatesPage" class="page card hidden"><h3>🔄 আপডেট রানিং</h3><div class="notice">🔄 আপডেট রানিং — নতুন আপডেট প্রস্তুত হলে এখানে জানানো হবে।</div><p>• অ্যাপের নতুন আপডেট</p><p>• নতুন ফিচারের খবর</p><p>• গুরুত্বপূর্ণ নোটিশ</p><p>• রক্ষণাবেক্ষণ সংক্রান্ত বার্তা</p></section>
+<section id="aboutPage" class="page card hidden"><h3>ℹ️ অ্যাপ সম্পর্কে</h3><h2>SAVAR FACTORY DUTY</h2><p>কারখানার কর্মীদের ডিউটি, হাজিরা ও ওভারটাইমের হিসাব সহজে সংরক্ষণের জন্য এই অ্যাপ তৈরি।</p><p>সুবিধা: ডিউটি যোগ, হাজিরা ক্যালেন্ডার, ওভারটাইম হিসাব, প্রোফাইল ও জরুরি যোগাযোগ।</p><p>ভার্সন: 1.0.0</p><p>ডেভেলপার: ISRAFIL KHAN ROHAN 📞01758706625</p></section>
+<section id="supportPage" class="page card hidden"><h3>🎧 সাপোর্ট</h3><label>সমস্যার ধরন নির্বাচন করুন</label><select id="issue"><option>লগইন সমস্যা</option><option>রেজিস্ট্রেশন সমস্যা</option><option>ডিউটি যোগ করতে সমস্যা</option><option>হাজিরার তথ্য সংশোধন</option><option>ওভারটাইম সমস্যা</option><option>অন্যান্য</option></select><label>বিস্তারিত লিখুন</label><textarea id="issueText" rows="3" placeholder="আপনার সমস্যাটি লিখুন"></textarea><button class="full" onclick="sendSupport()">সাপোর্ট মেসেজ তৈরি করুন</button><a class="btn full" style="display:block;text-align:center;text-decoration:none;margin-top:10px" target="_blank" href="https://chat.whatsapp.com/CwOxniGGIcVGXtDmG5PV3G?s=cl&p=a&mlu=4&ilr=4&iam=2">WhatsApp সাপোর্ট গ্রুপে মেসেজ দিন</a></section>
+<section id="adminPage" class="page hidden">
+ <div class="admin-dashboard">
+  <div class="admin-top"><div><h2>🛡️ ADMIN DASHBOARD</h2><small>SAVAR FACTORY WORK · CONTROL PANEL</small></div><div style="font-size:34px">🏭</div></div>
+  <div class="admin-stats">
+   <div class="admin-stat"><span>মোট কর্মী অ্যাকাউন্ট</span><b id="adminUserCount">০</b></div>
+   <div class="admin-stat"><span>মোট ডিউটি এন্ট্রি</span><b id="adminDutyCount">০</b></div>
+   <div class="admin-stat"><span>মোট উপস্থিতি</span><b id="adminPresentCount">০</b></div>
+   <div class="admin-stat"><span>মোট ওভারটাইম এন্ট্রি</span><b id="adminOTCount">০</b></div>
+  </div>
+  <h3>👥 কর্মীদের তালিকা</h3>
+  <div id="adminWorkerList"></div>
+  <div class="admin-actions">
+   <button onclick="renderAdmin()">🔄 রিফ্রেশ</button>
+   <button class="admin-cancel" onclick="exitAdminPanel()">↩ হোমপেজে ফিরুন</button>
+  </div>
+ </div>
+</section>
+</section>
+
+<!-- PREMIUM ADMIN LOGIN POPUP -->
+<div id="adminModal" class="admin-modal hidden">
+ <div class="admin-login-box">
+  <div class="admin-lock">🔐</div>
+  <h2>ADMIN LOGIN</h2>
+  <p>SAVAR FACTORY WORK<br>শুধুমাত্র এডমিন প্রবেশ করতে পারবেন</p>
+  <div class="admin-password-wrap">
+   <input id="adminPassInput" type="password" placeholder="এডমিন পাসওয়ার্ড লিখুন" onkeydown="if(event.key==='Enter')verifyAdminLogin()">
+      <span onclick="toggleAdminPass()">👁️</span>
+  </div>
+  <div id="adminError" class="admin-error"></div>
+  <button onclick="verifyAdminLogin()">🔓 LOGIN TO ADMIN</button>
+  <button class="admin-cancel" onclick="closeAdminLogin()">CANCEL</button>
+ </div>
+</div>
+</main>
+<nav id="bottomNav" class="hidden"><button onclick="goHome()"><b>⌂</b>হোম</button><button onclick="openPage('historyPage')"><b>▤</b>হাজিরা</button><button onclick="openPage('supportPage')"><b>☏</b>সাপোর্ট</button><button onclick="openPage('profilePage')"><b>♙</b>প্রোফাইল</button></nav>
+<script>
+const $=id=>document.getElementById(id),get=(k,d=[])=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d)),put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let users=get('sfd_users'),duties=get('sfd_duties'),ots=get('sfd_overtime'),current=null,photoData='';
+const SESSION_KEY='sfd_logged_in_phone';
+const contacts=[['সুপ: নাইমুল','01761233481'],['সুপ: সেলিম','01955574678'],['সুপ: সৌরভ','01739431493'],['সুপ: রফিক','01731374183'],['সুপ: সালাম','01791753736'],['সুপ: মনির-2','01719626063'],['সুপ: সফিক','01725566768'],['সুপ: ওয়াহিদ','01715534982'],['সুপ: কামরুজ্জামান','01724077575'],['সুপ: মুর্শেদ','01674083200'],['সুপ: মোস্তফা','01783244510'],['সুপ: জসিম','01775572237'],['সুপ: তবিবুর','01405790070'],['সুপ: দবির','01997194747'],['সুপ: নুরুল','01641199097']];
+$('contacts').innerHTML=contacts.map(c=>`<div class="contactline"><b>${c[0]}</b><span>${c[1]}</span><a href="tel:${c[1]}">কল</a></div>`).join('');
+function showLogin(){$('registerBox').classList.add('hidden');$('loginBox').classList.remove('hidden')}
+function showRegister(){$('loginBox').classList.add('hidden');$('registerBox').classList.remove('hidden')}
+function register(){let name=$('regName').value.trim(),id=$('regId').value.trim(),pass=$('regPass').value,role=$('regRole').value,phone=$('regPhone').value.trim();if(!name||!id||!pass||!phone)return alert('সব তথ্য পূরণ করুন');if(users.some(u=>u.phone===phone||u.id===id))return alert('এই নাম্বার বা আইডি দিয়ে অ্যাকাউন্ট আছে');let u={name,id,pass,role,phone};users.push(u);put('sfd_users',users);alert('রেজিস্ট্রেশন সফল! এখন লগইন করুন।');$('loginPhone').value=phone;showLogin()}
+function login(){let phone=$('loginPhone').value.trim(),pass=$('loginPass').value,u=users.find(x=>x.phone===phone&&x.pass===pass);if(!u)return alert('নাম্বার অথবা পাসওয়ার্ড ভুল');current=u;localStorage.setItem(SESSION_KEY,u.phone);enterApp()}
+function enterApp(){document.body.classList.add('app-open');$('authView').classList.add('hidden');$('appView').classList.remove('hidden');$('bottomNav').classList.remove('hidden');$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id;let d=new Date();$('todayDate').innerHTML=d.toLocaleString('en-GB',{day:'2-digit',month:'short'})+'<br>'+d.getFullYear();fillProfile();goHome()}
+function logout(){localStorage.removeItem(SESSION_KEY);document.body.classList.remove("app-open","home-open","admin-open");current=null;$('appView').classList.add('hidden');$('bottomNav').classList.add('hidden');$('authView').classList.remove('hidden');showLogin()}
+function goHome(){document.body.classList.remove('admin-open');document.body.classList.add('home-open');$('adminPage').classList.add('hidden');document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$('homePage').classList.remove('hidden')}
+function openPage(id){document.body.classList.remove('home-open','admin-open');$('homePage').classList.add('hidden');document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');if(id==='historyPage')renderHistory();if(id==='calendarPage'){if(!$('calMonth').value)$('calMonth').value=new Date().toISOString().slice(0,7)}}
+function saveDuty(){let date=$('dutyDate').value;if(!date)return alert('তারিখ নির্বাচন করুন');let i=duties.findIndex(d=>d.phone===current.phone&&d.date===date);let item={phone:current.phone,date,shift:$('dutyShift').value,status:$('dutyStatus').value};if(i>=0)duties[i]=item;else duties.push(item);put('sfd_duties',duties);alert('ডিউটি সেভ হয়েছে');renderHistory()}
+function hours(){let a=$('otStart').value,b=$('otEnd').value;if(a&&b){let [h,m]=a.split(':').map(Number),[x,y]=b.split(':').map(Number),n=(x*60+y)-(h*60+m);if(n<0)n+=1440;$('otHours').textContent='মোট ওভারটাইম: '+(n/60).toFixed(2)+' ঘণ্টা'}}
+$('otStart').addEventListener('change',hours);$('otEnd').addEventListener('change',hours);
+function saveOT(){let date=$('otDate').value,start=$('otStart').value,end=$('otEnd').value;if(!date||!start||!end)return alert('তারিখ ও সময় দিন');let [h,m]=start.split(':').map(Number),[x,y]=end.split(':').map(Number),n=(x*60+y)-(h*60+m);if(n<0)n+=1440;ots.push({phone:current.phone,date,start,end,hours:(n/60).toFixed(2)});put('sfd_overtime',ots);alert('ওভারটাইম সেভ হয়েছে');renderHistory()}
+function fillProfile(){$('pName').value=current.name;$('pPhone').value=current.phone;$('pId').value=current.id;$('pRole').value=current.role;photoData=current.photo||'';$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id}
+$('pPhoto').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>photoData=r.result;r.readAsDataURL(f)});
+function saveProfile(){current.name=$('pName').value.trim();current.id=$('pId').value.trim();current.role=$('pRole').value;current.photo=photoData;users=users.map(u=>u.phone===current.phone?current:u);put('sfd_users',users);$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id;$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';alert('প্রোফাইল আপডেট হয়েছে')}
+function renderHistory(){let mine=duties.filter(d=>d.phone===current.phone).sort((a,b)=>b.date.localeCompare(a.date)),present=mine.filter(d=>d.status==='উপস্থিত').length;$('totals').textContent=`মোট এন্ট্রি: ${mine.length} | উপস্থিতি: ${present} | মোট ডিউটি ঘণ্টা (প্রতি শিফট ৮ ঘণ্টা): ${present*8}`;$('history').innerHTML=mine.map(d=>`<tr><td>${d.date}</td><td>${d.shift}</td><td>${d.status}</td><td><button class="secondary" onclick="editDuty('${d.date}')">এডিট</button></td></tr>`).join('')||'<tr><td colspan="4">এখনো কোনো ডিউটি যোগ করা হয়নি</td></tr>';$('otList').innerHTML=ots.filter(o=>o.phone===current.phone).map(o=>`<p>${o.date} | ${o.start}-${o.end} | ${o.hours} ঘণ্টা</p>`).join('')||'ওভারটাইম নেই'}
+function editDuty(date){let d=duties.find(x=>x.phone===current.phone&&x.date===date);if(!d)return;$('dutyDate').value=d.date;$('dutyShift').value=d.shift;$('dutyStatus').value=d.status;openPage('dutyPage')}
+function renderCalendar(){let val=$('calMonth').value;if(!val)return;let [y,m]=val.split('-').map(Number),count=new Date(y,m,0).getDate(),first=new Date(y,m-1,1).getDay(),html=['রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র','শনি'].map(x=>`<div class="day"><b>${x}</b></div>`).join('');for(let i=0;i<first;i++)html+='<div class="day"></div>';for(let d=1;d<=count;d++){let date=`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,r=duties.find(x=>x.phone===current.phone&&x.date===date),cls=r?(r.status==='উপস্থিত'?'present':r.status==='অনুপস্থিত'?'absent':'leave'):'';html+=`<div class="day ${cls}" title="${r?r.status:'ডিউটি যোগ হয়নি'}">${d}${r?'<br>●':''}</div>`}$('calendar').innerHTML=html}
+function adminLogin(){
+ $('adminModal').classList.remove('hidden');
+ $('adminPassInput').value='';
+ $('adminError').textContent='';
+ setTimeout(()=>$('adminPassInput').focus(),100);
+}
+function verifyAdminLogin(){
+ let p=$('adminPassInput').value;
+ let savedPassword=localStorage.getItem('sfd_admin_password')||'ADMIN@1234';
+ if(!p){$('adminError').textContent='⚠️ পাসওয়ার্ড লিখুন';return;}
+ if(p!==savedPassword){$('adminError').textContent='❌ ভুল পাসওয়ার্ড! আবার চেষ্টা করুন';$('adminPassInput').value='';return;}
+ $('adminModal').classList.add('hidden');
+ document.body.classList.remove('home-open');
+ document.body.classList.add('admin-open');
+ $('homePage').classList.add('hidden');
+ document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));
+ $('adminPage').classList.remove('hidden');
+ $('bottomNav').classList.add('hidden');
+ renderAdmin();
+}
+function renderAdmin(){
+ $('adminUserCount').textContent=users.length;
+ $('adminDutyCount').textContent=duties.length;
+ $('adminPresentCount').textContent=duties.filter(d=>d.status==='উপস্থিত').length;
+ $('adminOTCount').textContent=ots.length;
+ $('adminWorkerList').innerHTML=users.map((u,i)=>`<div class="admin-worker"><div class="admin-worker-info"><b>${u.name||'নাম নেই'}</b><small>আইডি: ${u.id||'—'} · ${u.phone}<br>পদবি: ${u.role||'—'} · ডিউটি: ${duties.filter(d=>d.phone===u.phone).length}</small></div><button onclick="adminEditWorker(${i})">এডিট</button></div>`).join('')||'<p style="color:#cbd5e1">এখনো কোনো কর্মী রেজিস্ট্রেশন করেনি।</p>';
+}
+function adminEditWorker(i){
+ let u=users[i];if(!u)return;
+ let name=prompt('কর্মীর নতুন নাম',u.name);if(name===null)return;
+ let id=prompt('কর্মীর নতুন আইডি',u.id);if(id===null)return;
+ let role=prompt('নতুন পদবি',u.role||'নিরাপত্তা কর্মী');if(role===null)return;
+ u.name=name.trim();u.id=id.trim();u.role=role.trim();
+ put('sfd_users',users);renderAdmin();
+ alert('কর্মীর তথ্য আপডেট হয়েছে');
+}
+function exitAdminPanel(){
+ document.body.classList.remove('admin-open');
+ $('adminPage').classList.add('hidden');
+ $('bottomNav').classList.remove('hidden');
+ goHome();
+}
+
+function toggleAdminPass(){let p=$('adminPassInput');p.type=p.type==='password'?'text':'password';}
+function closeAdminLogin(){$('adminModal').classList.add('hidden');$('adminPassInput').value='';$('adminError').textContent='';}
+
+function sendSupport(){let msg='সমস্যা: '+$('issue').value+'\nবিস্তারিত: '+$('issueText').value+'\nনাম: '+current.name+'\nআইডি: '+current.id;location.href='https://wa.me/?text='+encodeURIComponent(msg)}
+$('dutyDate').value=new Date().toISOString().slice(0,10);$('otDate').value=new Date().toISOString().slice(0,10);
+// অ্যাপ আবার খুললে আগের লগইন করা অ্যাকাউন্ট স্বয়ংক্রিয়ভাবে চালু হবে
+(function restoreLogin(){const savedPhone=localStorage.getItem(SESSION_KEY);if(!savedPhone)return;const savedUser=users.find(u=>u.phone===savedPhone);if(savedUser){current=savedUser;enterApp()}else{localStorage.removeItem(SESSION_KEY)}})();
 </script></body></html>
