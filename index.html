@@ -339,11 +339,11 @@ body.admin-open main{padding-bottom:18px!important}
 <label>ফুল নাম</label><input id="regName" placeholder="আপনার নাম">
 <label>আইডি নাম্বার</label><input id="regId" placeholder="কর্মী আইডি">
 <label>পাসওয়ার্ড</label><input id="regPass" type="password" placeholder="পাসওয়ার্ড">
-<label>পদবি নির্বাচন</label><select id="regRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select>
+<label>পদবি নির্বাচন করুন</label><select id="regRole"><option>নিরাপত্তা কর্মী</option><option>সুপারভাইজার</option><option>ম্যানেজার</option><option>অন্য</option></select>
 <label>মোবাইল নাম্বার</label><input id="regPhone" type="tel" placeholder="01XXXXXXXXX">
 <button class="full" onclick="register()">রেজিস্ট্রেশন করুন</button>
 <p class="muted">আগে অ্যাকাউন্ট খুলেছেন <a href="#" onclick="showLogin()">লগইন করুন</a></p></div>
-<div id="loginBox" class="hidden"><h3>🔐 অ্যাকাউন্টে প্রবেশ করুন</h3><label>মোবাইল নাম্বার</label><input id="loginPhone" type="tel"><label>পাসওয়ার্ড দিন</label><input id="loginPass" type="password"><button class="full" onclick="login()">প্রবেশ করুন</button><p class="muted">অ্যাকাউন্ট নেই? <a href="#" onclick="showRegister()">রেজিস্ট্রেশন করতে হবে</a></p></div>
+<div id="loginBox" class="hidden"><h3>🔐 অ্যাকাউন্টে প্রবেশ করুন</h3><label>মোবাইল নাম্বার</label><input id="loginPhone" type="tel"><label>পাসওয়ার্ড দিন</label><input id="loginPass" type="password"><button class="full" onclick="login()">প্রবেশ করুন</button><p class="muted">অ্যাকাউন্ট নেই? <a href="#" onclick="showRegister()">রেজিস্ট্রেশন করুন</a></p></div>
 </div>
 </section>
 <section id="appView" class="hidden">
@@ -354,7 +354,7 @@ body.admin-open main{padding-bottom:18px!important}
  <div class="brand-admin"><button onclick="adminLogin()">A</button><small>Admin ▾</small></div>
 </div>
 <div class="profile-strip">
- <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ Active</div></div></div>
+ <div class="user-panel"><div class="avatar" id="homeAvatar">👤</div><div class="user-meta"><span id="welcome">স্বাগতম</span><small id="homeId">ID: —</small><div class="active-dot">♥️ ACTIVE</div></div></div>
  <div class="date-panel"><span>▦</span><div id="todayDate">আজকের তারিখ</div></div>
 </div>
 <div class="grid">
@@ -408,7 +408,7 @@ body.admin-open main{padding-bottom:18px!important}
   </div>
   <div id="adminError" class="admin-error"></div>
   <button onclick="verifyAdminLogin()">গোপন কথাটি সংরক্ষণ করুন✅</button>
-  <button class="admin-cancel" onclick="closeAdminLogin()">CANCEL</button>
+  <button class="admin-cancel" onclick="closeAdminLogin()">🏠হোমে ফিরুন🏠</button>
  </div>
 </div>
 </main>
@@ -417,7 +417,7 @@ body.admin-open main{padding-bottom:18px!important}
 const $=id=>document.getElementById(id),get=(k,d=[])=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d)),put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 let users=get('sfd_users'),duties=get('sfd_duties'),ots=get('sfd_overtime'),current=null,photoData='';
 const SESSION_KEY='sfd_logged_in_phone';
-const contacts=[['সুপ: নাইমুল','01761233481'],['সুপ: সেলিম','01955574678'],['সুপ: সৌরভ','01739431493'],['সুপ: রফিক','01731374183'],['সুপ: সালাম','01791753736'],['সুপ: মনিরুজ্জামান','01719626063'],['সুপ: সফিক','01725566768'],['সুপ: ওয়াহিদ','01715534982'],['সুপা: কামরুজ্জামান','01724077575'],['সুপ: মুর্শেদ','01674083200'],['সুপ: মোস্তফা','01783244510'],['সুপ: জসিম','01775572237'],['সুপ: তবিবুর','01405790070'],['সুপ: দবির','01997194747'],['সুপ: নুরুল','01641199097']];
+const contacts=[['সুপাঃ~ নাইমুল','01761233481'],['সুপাঃ~ সেলিম','01955574678'],['সুপাঃ~ সৌরভ','01739431493'],['সুপাঃ~ রফিক','01731374183'],['সুপাঃ~ আ:সালাম','01791753736'],['সুপাঃ~ মনিরুজ্জামান','01719626063'],['সুপাঃ~ সফিক','01725566768'],['সুপাঃ~ ওয়াহিদ','01715534982'],['সুপাঃ~ কামরুজ্জামান','01724077575'],['সুপাঃ~ মুর্শেদ','01674083200'],['সুপাঃ~ মোস্তফা','01783244510'],['সুপাঃ~ জসিম','01775572237'],['সুপাঃ~ তবিবুর','01405790070'],['সুপাঃ~ দবির','01997194747'],['সুপাঃ~ নুরুল','01641199097']];
 $('contacts').innerHTML=contacts.map(c=>`<div class="contactline"><b>${c[0]}</b><span>${c[1]}</span><a href="tel:${c[1]}">কল</a></div>`).join('');
 function showLogin(){$('registerBox').classList.add('hidden');$('loginBox').classList.remove('hidden')}
 function showRegister(){$('loginBox').classList.add('hidden');$('registerBox').classList.remove('hidden')}
@@ -434,7 +434,7 @@ function saveOT(){let date=$('otDate').value,start=$('otStart').value,end=$('otE
 function fillProfile(){$('pName').value=current.name;$('pPhone').value=current.phone;$('pId').value=current.id;$('pRole').value=current.role;photoData=current.photo||'';$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id}
 $('pPhoto').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>photoData=r.result;r.readAsDataURL(f)});
 function saveProfile(){current.name=$('pName').value.trim();current.id=$('pId').value.trim();current.role=$('pRole').value;current.photo=photoData;users=users.map(u=>u.phone===current.phone?current:u);put('sfd_users',users);$('welcome').textContent=current.name;$('homeId').textContent='ID: '+current.id;$('homeAvatar').innerHTML=photoData?'<img src="'+photoData+'">':'👤';alert('প্রোফাইল আপডেট হয়েছে')}
-function renderHistory(){let mine=duties.filter(d=>d.phone===current.phone).sort((a,b)=>b.date.localeCompare(a.date)),present=mine.filter(d=>d.status==='উপস্থিত').length;$('totals').textContent=`মোট এন্ট্রি: ${mine.length} | উপস্থিতি: ${present} | মোট ডিউটি ঘণ্টা (প্রতি শিফট ৮ ঘণ্টা): ${present*8}`;$('history').innerHTML=mine.map(d=>`<tr><td>${d.date}</td><td>${d.shift}</td><td>${d.status}</td><td><button class="secondary" onclick="editDuty('${d.date}')">এডিট</button></td></tr>`).join('')||'<tr><td colspan="4">এখনো কোনো ডিউটি যোগ করা হয়নি</td></tr>';$('otList').innerHTML=ots.filter(o=>o.phone===current.phone).map(o=>`<p>${o.date} | ${o.start}-${o.end} | ${o.hours} ঘণ্টা</p>`).join('')||'ওভারটাইম নেই'}
+function renderHistory(){let mine=duties.filter(d=>d.phone===current.phone).sort((a,b)=>b.date.localeCompare(a.date)),present=mine.filter(d=>d.status==='উপস্থিত').length;$('totals').textContent=`মোট এন্ট্রি: ${mine.length} | উপস্থিতি: ${present} | মোট ডিউটি ঘণ্টা: ${present*8}`;$('history').innerHTML=mine.map(d=>`<tr><td>${d.date}</td><td>${d.shift}</td><td>${d.status}</td><td><button class="secondary" onclick="editDuty('${d.date}')">এডিট</button></td></tr>`).join('')||'<tr><td colspan="4">এখনো কোনো ডিউটি যোগ করা হয়নি</td></tr>';$('otList').innerHTML=ots.filter(o=>o.phone===current.phone).map(o=>`<p>${o.date} | ${o.start}-${o.end} | ${o.hours} ঘণ্টা</p>`).join('')||'ওভারটাইম নেই'}
 function editDuty(date){let d=duties.find(x=>x.phone===current.phone&&x.date===date);if(!d)return;$('dutyDate').value=d.date;$('dutyShift').value=d.shift;$('dutyStatus').value=d.status;openPage('dutyPage')}
 function renderCalendar(){let val=$('calMonth').value;if(!val)return;let [y,m]=val.split('-').map(Number),count=new Date(y,m,0).getDate(),first=new Date(y,m-1,1).getDay(),html=['রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র','শনি'].map(x=>`<div class="day"><b>${x}</b></div>`).join('');for(let i=0;i<first;i++)html+='<div class="day"></div>';for(let d=1;d<=count;d++){let date=`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,r=duties.find(x=>x.phone===current.phone&&x.date===date),cls=r?(r.status==='উপস্থিত'?'present':r.status==='অনুপস্থিত'?'absent':'leave'):'';html+=`<div class="day ${cls}" title="${r?r.status:'ডিউটি যোগ হয়নি'}">${d}${r?'<br>●':''}</div>`}$('calendar').innerHTML=html}
 function adminLogin(){
@@ -446,8 +446,8 @@ function adminLogin(){
 function verifyAdminLogin(){
  let p=$('adminPassInput').value;
  let savedPassword=localStorage.getItem('sfd_admin_password')||'ADMIN@1234';
- if(!p){$('adminError').textContent='⚠️ পাসওয়ার্ড লিখুন';return;}
- if(p!==savedPassword){$('adminError').textContent='❌ ভুল পাসওয়ার্ড! আবার চেষ্টা করুন';$('adminPassInput').value='';return;}
+ if(!p){$('adminError').textContent='🤍 আল্লাহু আকবার 🤍';return;}
+ if(p!==savedPassword){$('adminError').textContent='🤍 লা ইলাহা ইল্লাল্লাহু মুহাম্মাদুর রাসুলুল্লাহ ﷺ 🤍';$('adminPassInput').value='';return;}
  $('adminModal').classList.add('hidden');
  document.body.classList.remove('home-open');
  document.body.classList.add('admin-open');
