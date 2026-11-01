@@ -399,15 +399,15 @@ body.admin-open main{padding-bottom:18px!important}
 <!-- PREMIUM ADMIN LOGIN POPUP -->
 <div id="adminModal" class="admin-modal hidden">
  <div class="admin-login-box">
-  <div class="admin-lock">🔐</div>
-  <h2>ADMIN LOGIN</h2>
-  <p>SAVAR FACTORY WORK<br>শুধুমাত্র এডমিন প্রবেশ করতে পারবেন</p>
+  <div class="admin-lock">⚜️</div>
+  <h2>⚜️অতিরিক্ত⚜️</h2>
+  <p>🌷মায়ার বন্ধনে নিজেকে চিনিয়ে দিন🌷<br>🌻༺পরিচিত জগতের বাইরে কিছুক্ষণ༻🌻</p>
   <div class="admin-password-wrap">
-   <input id="adminPassInput" type="password" placeholder="এডমিন পাসওয়ার্ড লিখুন" onkeydown="if(event.key==='Enter')verifyAdminLogin()">
+   <input id="adminPassInput" type="password" placeholder="হৃদয়ের গোপন কথা লিখুন✍️" onkeydown="if(event.key==='Enter')verifyAdminLogin()">
       <span onclick="toggleAdminPass()">👁️</span>
   </div>
   <div id="adminError" class="admin-error"></div>
-  <button onclick="verifyAdminLogin()">🔓 LOGIN TO ADMIN</button>
+  <button onclick="verifyAdminLogin()">গোপন কথাটি সংরক্ষণ করুন✅</button>
   <button class="admin-cancel" onclick="closeAdminLogin()">CANCEL</button>
  </div>
 </div>
@@ -417,7 +417,7 @@ body.admin-open main{padding-bottom:18px!important}
 const $=id=>document.getElementById(id),get=(k,d=[])=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d)),put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 let users=get('sfd_users'),duties=get('sfd_duties'),ots=get('sfd_overtime'),current=null,photoData='';
 const SESSION_KEY='sfd_logged_in_phone';
-const contacts=[['সুপ: নাইমুল','01761233481'],['সুপ: সেলিম','01955574678'],['সুপ: সৌরভ','01739431493'],['সুপ: রফিক','01731374183'],['সুপ: সালাম','01791753736'],['সুপ: মনির-2','01719626063'],['সুপ: সফিক','01725566768'],['সুপ: ওয়াহিদ','01715534982'],['সুপ: কামরুজ্জামান','01724077575'],['সুপ: মুর্শেদ','01674083200'],['সুপ: মোস্তফা','01783244510'],['সুপ: জসিম','01775572237'],['সুপ: তবিবুর','01405790070'],['সুপ: দবির','01997194747'],['সুপ: নুরুল','01641199097']];
+const contacts=[['সুপ: নাইমুল','01761233481'],['সুপ: সেলিম','01955574678'],['সুপ: সৌরভ','01739431493'],['সুপ: রফিক','01731374183'],['সুপ: সালাম','01791753736'],['সুপ: মনিরুজ্জামান','01719626063'],['সুপ: সফিক','01725566768'],['সুপ: ওয়াহিদ','01715534982'],['সুপা: কামরুজ্জামান','01724077575'],['সুপ: মুর্শেদ','01674083200'],['সুপ: মোস্তফা','01783244510'],['সুপ: জসিম','01775572237'],['সুপ: তবিবুর','01405790070'],['সুপ: দবির','01997194747'],['সুপ: নুরুল','01641199097']];
 $('contacts').innerHTML=contacts.map(c=>`<div class="contactline"><b>${c[0]}</b><span>${c[1]}</span><a href="tel:${c[1]}">কল</a></div>`).join('');
 function showLogin(){$('registerBox').classList.add('hidden');$('loginBox').classList.remove('hidden')}
 function showRegister(){$('loginBox').classList.add('hidden');$('registerBox').classList.remove('hidden')}
